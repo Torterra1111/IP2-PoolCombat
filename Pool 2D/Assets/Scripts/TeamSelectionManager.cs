@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TeamSelectionManager : MonoBehaviour
@@ -15,10 +16,17 @@ public class TeamSelectionManager : MonoBehaviour
     public GameObject player1text;
     public GameObject player2text;
 
+    public GameObject mapObj;
+    public string sceneToLoad;
+    public Text mapSelectionText;
+    public Button[] maps;
+
     public Button[] teams;
 
     void Start()
     {
+        sceneToLoad = "";
+        mapSelectionText.text = "";
         gameData = GameObject.Find("GameData");
         if (gameData != null)
         {
@@ -41,6 +49,14 @@ public class TeamSelectionManager : MonoBehaviour
         player2text.SetActive(false);
 
         player1Turn = true;
+
+        for (int i = 0; i < teams.Length; i++)
+        {
+            if (teams[i].interactable == false)
+            {
+                teams[i].interactable = true;
+            }
+        }
     }
 
     //example of method linked to button, it writes the correct int in gamedata and disables the button
@@ -78,11 +94,53 @@ public class TeamSelectionManager : MonoBehaviour
         teams[1].interactable = false;
     }
 
-    public void LoadTestScene()
+    public void TestScene()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
-            Application.LoadLevel("SampleScene");
+            sceneToLoad = "SampleScene";
+            mapSelectionText.text = " selected";
+            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
+            for (int i = 0; i < maps.Length; i++)
+            {
+                if (maps[i].interactable == false)
+                {
+                    maps[i].interactable = true;
+                }
+            }
+            maps[0].interactable = false;
         }
     }
+
+    public void Map1Scene()
+    {
+        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
+        {
+            sceneToLoad = "Map1Scene";
+            mapSelectionText.text = " selected";
+            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
+            for (int i = 0; i < maps.Length; i++)
+            {
+                if (maps[i].interactable == false)
+                {
+                    maps[i].interactable = true;
+                }
+            }
+            maps[1].interactable = false;
+        }
+    }
+
+    public void LoadSelectedMap()
+    {
+        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0 && sceneToLoad != "")
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+        }
+    }
+
+    /*public void MapSelectionButton()
+    {
+        mapObj.SetActive(true);
+        selectMapButton.SetActive(false);
+    }*/
 }
