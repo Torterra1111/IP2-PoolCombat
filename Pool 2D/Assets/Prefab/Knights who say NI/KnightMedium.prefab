@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4841579412015212965}
   - component: {fileID: 4841579412015212964}
   - component: {fileID: 4841579412015212967}
-  - component: {fileID: 7916753578236059196}
+  - component: {fileID: 1104802406349425541}
   m_Layer: 0
   m_Name: KnightMedium
   m_TagString: PlayerKnight
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_Offset: {x: 0.06801271, y: -0.2984377}
   serializedVersion: 2
   m_Radius: 2.1498477
---- !u!114 &7916753578236059196
+--- !u!114 &1104802406349425541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4841579412015212961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0128536483fd45b19736f0d5b595a, type: 3}
+  m_Script: {fileID: 11500000, guid: ff8c77d9fab5e5f4391bf9b02f21697d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 50
@@ -136,5 +136,5 @@ MonoBehaviour:
   minForce: 50
   rb: {fileID: 0}
   ballForce: 0
-  hp: 0
-  Attack: 0
+  hp: 5
+  Attack: 2

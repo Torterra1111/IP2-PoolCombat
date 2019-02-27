@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionScript : MonoBehaviour
+public class CollisionCombatScript : MonoBehaviour
 {
     [SerializeField]
     private float force = 50;
@@ -67,16 +67,17 @@ public class CollisionScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag)
         {
+            Debug.Log("AAA THINGS HURT");
             //If they hit you. they will call the varibles of what was hit. then do the maths
-            col.gameObject.GetComponent<CollisionScript>().hp = col.gameObject.GetComponent<CollisionScript>().hp - Attack;
+            col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
 
-            if (col.gameObject.GetComponent<CollisionScript>().hp <= 0 && IsAttack == true)
+            if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0 && IsAttack == true)
             {
                 Destroy(col.gameObject);
             }
             IsAttack = false;
 
         }
-        
+
     }
 }
