@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1737734179170333943}
   - component: {fileID: 752015415293227893}
   - component: {fileID: 7733688616834451844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SamuraiLight
   m_TagString: PlayerSamurai
   m_Icon: {fileID: 0}

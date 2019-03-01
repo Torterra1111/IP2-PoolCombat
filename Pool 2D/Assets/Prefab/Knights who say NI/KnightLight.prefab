@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2601541666658537327}
   - component: {fileID: 7981877254004495080}
   - component: {fileID: 4868545530383330304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KnightLight
   m_TagString: PlayerKnight
   m_Icon: {fileID: 0}

@@ -24,25 +24,29 @@ public class SpikeScript : MonoBehaviour
 
 
 
-        void OnCollisionEnter2D(Collision2D dol)
+       
+    }
+
+
+    void OnCollisionEnter2D(Collision2D dol)
+    {
+
+        Debug.Log("AAA THINGS HURT");
+        //if the tag is different from the collided object tag it runs the if statement 
+        if (dol.gameObject.tag != gameObject.tag)
         {
 
-            Debug.Log("AAA THINGS HURT");
-            //if the tag is different from the collided object tag it runs the if statement 
-            if (dol.gameObject.tag != gameObject.tag)
+            //If they hit you. they will call the varibles of what was hit. then do the maths
+            dol.gameObject.GetComponent<CollisionCombatScript>().hp = dol.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
+
+            if (dol.gameObject.GetComponent<CollisionCombatScript>().hp <= 0)
             {
-                
-                //If they hit you. they will call the varibles of what was hit. then do the maths
-                dol.gameObject.GetComponent<CollisionCombatScript>().hp = dol.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
-
-                if (dol.gameObject.GetComponent<CollisionCombatScript>().hp <= 0)
-                {
-                    Destroy(dol.gameObject);
-                }
-                
-
+                Destroy(dol.gameObject);
             }
 
+
         }
+
     }
+
 }
