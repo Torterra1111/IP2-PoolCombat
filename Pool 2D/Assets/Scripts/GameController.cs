@@ -111,7 +111,7 @@ public class GameController : MonoBehaviour
     {
         for(int i = 0; i < player1Balls.Length; i++)
         {
-            CollisionScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionScript>();
+            CollisionCombatScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionCombatScript>();
             if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
@@ -123,7 +123,7 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < player1Balls.Length; i++)
         {
-            CollisionScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionScript>();
+            CollisionCombatScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionCombatScript>();
             if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;
@@ -135,7 +135,7 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < player2Balls.Length; i++)
         {
-            CollisionScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionScript>();
+            CollisionCombatScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionCombatScript>();
             if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
@@ -147,7 +147,7 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < player2Balls.Length; i++)
         {
-            CollisionScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionScript>();
+            CollisionCombatScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionCombatScript>();
             if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;

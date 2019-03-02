@@ -99,7 +99,7 @@ public class CollisionCombatScript : MonoBehaviour
     {
         ball.GetComponent<CircleCollider2D>().enabled = false;
         ball.GetComponent<SpriteRenderer>().enabled = false;
-        ball.GetComponent<CollisionScript>().enabled = false;
+        ball.GetComponent<CollisionCombatScript>().enabled = false;
         ball.GetComponent<Rigidbody2D>().IsSleeping();
     }
 }
