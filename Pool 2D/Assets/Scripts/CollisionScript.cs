@@ -20,10 +20,20 @@ public class CollisionScript : MonoBehaviour
     private bool IsActive = false;
     private bool IsAttack = false;
 
+    public bool interactable = false;
+
+    GameController gameControllerScript;
+    GameObject gameController;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameController = GameObject.Find("GameController");
+        if (gameController != null)
+        {
+            gameControllerScript = gameController.GetComponent<GameController>();
+        }
     }
 
     void OnMouseDown()
@@ -35,31 +45,34 @@ public class CollisionScript : MonoBehaviour
 
     void Update()
     {
-        if (IsActive == true)
+        if (interactable)
         {
-            //Getting mouse position
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Where the ball should go is = to the ball position
-            direction = (Vector2)(mousePosition - transform.position);
-
-            if (Input.GetMouseButtonUp(0))
+            if (IsActive == true)
             {
-                rb.AddForce(direction * force);
-                IsActive = false;
-            }
+                //Getting mouse position
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Where the ball should go is = to the ball position
+                direction = (Vector2)(mousePosition - transform.position);
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0 && force < maxForce)
-            {
-                force += 50;
-            }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    rb.AddForce(direction * force);
+                    IsActive = false;
+                    gameControllerScript.playerActions++;
+                }
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0 && force > minForce)
-            {
-                force -= 50;
-            }
+                if (Input.GetAxis("Mouse ScrollWheel") > 0 && force < maxForce)
+                {
+                    force += 50;
+                }
 
+                if (Input.GetAxis("Mouse ScrollWheel") < 0 && force > minForce)
+                {
+                    force -= 50;
+                }
+
+            }
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -72,11 +85,20 @@ public class CollisionScript : MonoBehaviour
 
             if (col.gameObject.GetComponent<CollisionScript>().hp <= 0 && IsAttack == true)
             {
-                Destroy(col.gameObject);
+                DisableBall(col.gameObject);
             }
             IsAttack = false;
 
         }
         
+    }
+
+    //instead of using unity's built in Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
+    public void DisableBall(GameObject ball)
+    {
+        ball.GetComponent<CircleCollider2D>().enabled = false;
+        ball.GetComponent<SpriteRenderer>().enabled = false;
+        ball.GetComponent<CollisionScript>().enabled = false;
+        ball.GetComponent<Rigidbody2D>().IsSleeping();
     }
 }

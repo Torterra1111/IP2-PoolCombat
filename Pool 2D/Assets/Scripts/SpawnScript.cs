@@ -25,7 +25,9 @@ public class SpawnScript : MonoBehaviour
 
     public void SpawnTriplet(int team)
     {
-        //spawn 3 different balls of the same team and player
+        //spawn 3  balls of the same team and player
+
+        //samurai team spawn
         if (team == 1)
         {   
             if (gameController.player1BallsHasSpawned == false)
@@ -62,6 +64,7 @@ public class SpawnScript : MonoBehaviour
             }
         }
 
+        //knight team spawn
         if (team == 2)
         {
             if (gameController.player1BallsHasSpawned == false)
