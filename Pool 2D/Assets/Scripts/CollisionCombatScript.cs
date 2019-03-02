@@ -80,7 +80,6 @@ public class CollisionCombatScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag)
         {
-            Debug.Log("AAA THINGS HURT");
             //If they hit you. they will call the varibles of what was hit. then do the maths
             col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
 
