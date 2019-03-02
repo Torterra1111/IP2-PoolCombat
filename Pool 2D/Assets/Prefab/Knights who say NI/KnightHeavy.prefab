@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1632204623}
   - component: {fileID: 1632204622}
   - component: {fileID: 1632204621}
-  - component: {fileID: 3959212700364047529}
-  m_Layer: 0
+  - component: {fileID: 8428861676928492783}
+  m_Layer: 9
   m_Name: KnightHeavy
   m_TagString: PlayerKnight
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0.95
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.95
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 065e9e02b4b84e04daf4ec7554dbc87f, type: 2}
   m_Interpolate: 0
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_Offset: {x: 0.06801271, y: -0.2984377}
   serializedVersion: 2
   m_Radius: 2.1498477
---- !u!114 &3959212700364047529
+--- !u!114 &8428861676928492783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632204619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0128536483fd45b19736f0d5b595a, type: 3}
+  m_Script: {fileID: 11500000, guid: ff8c77d9fab5e5f4391bf9b02f21697d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 50
@@ -136,5 +136,5 @@ MonoBehaviour:
   minForce: 50
   rb: {fileID: 0}
   ballForce: 0
-  hp: 0
-  Attack: 0
+  hp: 7
+  Attack: 1
