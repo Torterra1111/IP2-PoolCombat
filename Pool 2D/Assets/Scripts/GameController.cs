@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GameController : MonoBehaviour
     public bool player2BallsActive = false;
     public GameObject[] player1Balls;
     public GameObject[] player2Balls;
+
+    public Text player1TurnText;
+    public Text player2TurnText;
 
     public enum TurnState
     {
@@ -58,12 +62,14 @@ public class GameController : MonoBehaviour
                 if(!player1BallsActive)
                 {
                     ActivatePlayer1Balls();
+                    player1TurnText.gameObject.SetActive(true);
                     player1BallsActive = true;
                 }
 
                 if (playerActions == maxActionPerTurn)
                 {
                     playerActions = 0;
+                    player1TurnText.gameObject.SetActive(false);
                     currentState = TurnState.ENDTURN;
                 }
 
@@ -74,12 +80,14 @@ public class GameController : MonoBehaviour
                 if (!player2BallsActive)
                 {
                     ActivatePlayer2Balls();
+                    player2TurnText.gameObject.SetActive(true);
                     player2BallsActive = true;
                 }
 
                 if (playerActions == maxActionPerTurn)
                 {
                     playerActions = 0;
+                    player2TurnText.gameObject.SetActive(false);
                     currentState = TurnState.ENDTURN;
                 }
 
