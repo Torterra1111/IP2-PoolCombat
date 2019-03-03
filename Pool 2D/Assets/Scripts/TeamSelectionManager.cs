@@ -130,6 +130,24 @@ public class TeamSelectionManager : MonoBehaviour
         }
     }
 
+    public void LevelDungeon()
+    {
+        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
+        {
+            sceneToLoad = "LevelDungeon";
+            mapSelectionText.text = " selected";
+            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
+            for (int i = 0; i < maps.Length; i++)
+            {
+                if (maps[i].interactable == false)
+                {
+                    maps[i].interactable = true;
+                }
+            }
+            maps[2].interactable = false;
+        }
+    }
+
     public void LoadSelectedMap()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0 && sceneToLoad != "")

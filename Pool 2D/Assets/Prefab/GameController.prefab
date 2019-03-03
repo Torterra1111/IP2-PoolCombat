@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2680030757040527690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2680030757040527693}
+  - component: {fileID: 2680030757040527692}
+  - component: {fileID: 2680030757040527691}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2680030757040527693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680030757040527690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.6, y: -0.21412379, z: 0.4375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2680030757040527692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680030757040527690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ad801b6173c1e41a95adefbac68de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameDataScript: {fileID: 0}
+  gameData: {fileID: 0}
+  spawnScript: {fileID: 0}
+  player1BallsHasSpawned: 0
+  playerActions: 0
+  maxActionPerTurn: 1
+  player1BallsActive: 0
+  player2BallsActive: 0
+  player1Balls: []
+  player2Balls: []
+  currentState: 0
+--- !u!114 &2680030757040527691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680030757040527690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02881095c290e834ba4df130eb6cfd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  samurai:
+  - {fileID: 3644711684735116337, guid: 5ab290d7b1ac58d498665468605bd8c6, type: 3}
+  - {fileID: 2504733684464180744, guid: e8c89bdb6577b934ebce3a327bd0474e, type: 3}
+  - {fileID: 2504733684464180744, guid: 83fad26952ddb2e48aa27bd0077c0f44, type: 3}
+  knights:
+  - {fileID: 1632204619, guid: 29e4a24f7204ca1419994b6eea390a47, type: 3}
+  - {fileID: 4841579412015212961, guid: bd10d8e756eceba4abbd46f29e305924, type: 3}
+  - {fileID: 8231267242727658959, guid: 9a6bc8367aecdf44690bbf7b979691d8, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gameController: {fileID: 0}
