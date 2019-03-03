@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class CollisionCombatScript : MonoBehaviour
 {
+    //Movement Controllers
     [SerializeField]
     private float force = 50;
     [SerializeField]
     private float maxForce = 200;
     [SerializeField]
     private float minForce = 50;
-
     private Vector2 direction;
-
     public Rigidbody2D rb;
+    //Stat controllers
     public float ballForce;
     public float hp;
     public float Attack;
+    //Attack Controllers
     private bool IsActive = false;
     private bool IsAttack = false;
-
     public bool interactable = false;
-
+    public int TakingDamage = 0;
+    //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
+    //Events
+    public delegate void PlaySound(int TakingDamage);
+    public static event PlaySound EventPlaySound;
 
     // Start is called before the first frame update
     void Start()
@@ -80,18 +84,19 @@ public class CollisionCombatScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag)
         {
-            Debug.Log("AAA THINGS HURT");
             //If they hit you. they will call the varibles of what was hit. then do the maths
             col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
-
+            
             if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0 && IsAttack == true)
             {
                 DisableBall(col.gameObject);
+                TakingDamage = 2;
             }
             IsAttack = false;
-
+            TakingDamage = 1;
         }
-
+        TakingDamage = 0;
+        EventPlaySound(TakingDamage);
     }
 
     //instead of using unity's built in Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
