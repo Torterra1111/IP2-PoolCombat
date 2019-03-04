@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelDungeon.unity
     guid: ea050d4b469a4f74eb88f7c5c818307f
+  - enabled: 1
+    path: Assets/Scenes/LevelGlacier.unity
+    guid: bec580ee75d791d4b99dfe261f9ffef2
+  - enabled: 1
+    path: Assets/Scenes/LevelJungle.unity
+    guid: ae16c4b46903e0c4aad5c353917d5434
   m_configObjects: {}

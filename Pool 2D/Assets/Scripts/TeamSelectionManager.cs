@@ -112,11 +112,29 @@ public class TeamSelectionManager : MonoBehaviour
         }
     }
 
-    public void Map1Scene()
+    public void LevelJungle()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
-            sceneToLoad = "Map1Scene";
+            sceneToLoad = "LevelJungle";
+            mapSelectionText.text = " selected";
+            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
+            for (int i = 0; i < maps.Length; i++)
+            {
+                if (maps[i].interactable == false)
+                {
+                    maps[i].interactable = true;
+                }
+            }
+            maps[1].interactable = false;
+        }
+    }
+
+    public void LevelGlacier()
+    {
+        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
+        {
+            sceneToLoad = "LevelGlacier";
             mapSelectionText.text = " selected";
             mapSelectionText.text = sceneToLoad + mapSelectionText.text;
             for (int i = 0; i < maps.Length; i++)
