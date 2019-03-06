@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4841579412015212964}
   - component: {fileID: 4841579412015212967}
   - component: {fileID: 1104802406349425541}
+  - component: {fileID: 6541941660022347979}
   m_Layer: 9
   m_Name: KnightMedium
   m_TagString: PlayerKnight
@@ -138,3 +139,24 @@ MonoBehaviour:
   ballForce: 0
   hp: 5
   Attack: 2
+  interactable: 0
+  TakingDamage: 0
+--- !u!95 &6541941660022347979
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841579412015212961}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 442646ed84be9b9418b2c7e3c6960795, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
