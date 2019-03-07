@@ -21,14 +21,17 @@ public class CollisionCombatScript : MonoBehaviour
     private bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
-    public int TakingDamage = 0;
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
     //Events
     public delegate void PlaySound(int TakingDamage);
     public static event PlaySound EventPlaySound;
-
+    //Sound Control
+    public AudioClip Injure;
+    public AudioClip Death;
+   
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +59,7 @@ public class CollisionCombatScript : MonoBehaviour
                 //Getting mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Where the ball should go is = to the ball position
-                direction = (Vector2)(mousePosition - transform.position);
+                direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL
 
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -86,17 +89,20 @@ public class CollisionCombatScript : MonoBehaviour
         {
             //If they hit you. they will call the varibles of what was hit. then do the maths
             col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
-            
             if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0 && IsAttack == true)
             {
+                GetComponent<AudioSource>().PlayOneShot(Death);
                 DisableBall(col.gameObject);
-                TakingDamage = 2;
+            }
+            else
+            {
+                GetComponent<AudioSource>().PlayOneShot(Injure);
+                Debug.Log("Sound plays?");
             }
             IsAttack = false;
-            TakingDamage = 1;
+
         }
-        TakingDamage = 0;
-        EventPlaySound(TakingDamage);
+    
     }
 
     //instead of using unity's built in Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
@@ -108,3 +114,17 @@ public class CollisionCombatScript : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().IsSleeping();
     }
 }
+/*
+    void PlaySound(int TakingDamage)
+    {
+        if (TakingDamage == 1)
+        {
+            GetComponent<AudioSource>().PlayOneShot(Injure);
+        }
+        else if (TakingDamage == 2)
+        {
+            GetComponent<AudioSource>().PlayOneShot(Death);
+        }
+    }
+
+    */

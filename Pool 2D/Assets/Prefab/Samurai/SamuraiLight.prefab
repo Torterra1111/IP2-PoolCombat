@@ -139,3 +139,5 @@ MonoBehaviour:
   hp: 3
   Attack: 3
   interactable: 0
+  Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
+  Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
