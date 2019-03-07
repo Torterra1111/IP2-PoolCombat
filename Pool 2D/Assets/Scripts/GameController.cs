@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
                     player1BallsActive = true;
                 }
 
-                if (playerActions == maxActionPerTurn)
+                if (playerActions >= maxActionPerTurn)
                 {
                     playerActions = 0;
                     player1TurnText.gameObject.SetActive(false);
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
                     player2BallsActive = true;
                 }
 
-                if (playerActions == maxActionPerTurn)
+                if (playerActions >= maxActionPerTurn)
                 {
                     playerActions = 0;
                     player2TurnText.gameObject.SetActive(false);
@@ -123,6 +123,7 @@ public class GameController : MonoBehaviour
             if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
+                collisionScriptToCheck.IsActive = false;
             }
         }
     }
@@ -135,6 +136,7 @@ public class GameController : MonoBehaviour
             if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;
+                collisionScriptToCheck.IsActive = false;
             }
         }
     }
@@ -147,6 +149,7 @@ public class GameController : MonoBehaviour
             if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
+                collisionScriptToCheck.IsActive = false;
             }
         }
     }
@@ -159,6 +162,7 @@ public class GameController : MonoBehaviour
             if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;
+                collisionScriptToCheck.IsActive = false;
             }
         }
     } 

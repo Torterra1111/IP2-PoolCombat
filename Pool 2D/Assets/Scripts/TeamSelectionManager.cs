@@ -144,7 +144,7 @@ public class TeamSelectionManager : MonoBehaviour
                     maps[i].interactable = true;
                 }
             }
-            maps[1].interactable = false;
+            maps[3].interactable = false;
         }
     }
 

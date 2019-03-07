@@ -18,7 +18,7 @@ public class CollisionCombatScript : MonoBehaviour
     public float hp;
     public float Attack;
     //Attack Controllers
-    private bool IsActive = false;
+    public bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
     //Game Controllers
@@ -87,20 +87,25 @@ public class CollisionCombatScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag)
         {
-            //If they hit you. they will call the varibles of what was hit. then do the maths
-            col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
-            if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0 && IsAttack == true)
-            {
-                GetComponent<AudioSource>().PlayOneShot(Death);
-                DisableBall(col.gameObject);
-            }
-            else
-            {
-                GetComponent<AudioSource>().PlayOneShot(Injure);
-                Debug.Log("Sound plays?");
-            }
-            IsAttack = false;
+            //register a reference to the collided object script for simplicity and to prevents error when hitting something without tag
+            CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
 
+            if (ballHitScript != null)
+            {
+                //If they hit you. they will call the varibles of what was hit. then do the maths
+                ballHitScript.hp = ballHitScript.hp - Attack;
+                if (ballHitScript.hp <= 0 && IsAttack == true)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(Death);
+                    DisableBall(col.gameObject);
+                }
+                else
+                {
+                    GetComponent<AudioSource>().PlayOneShot(Injure);
+                    Debug.Log("Sound plays?");
+                }
+                IsAttack = false;
+            }
         }
     
     }
