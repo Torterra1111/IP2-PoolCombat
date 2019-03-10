@@ -18,34 +18,34 @@ public class SpikeScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-
-       
-    }
-
-
-    void OnCollisionEnter2D(Collision2D dol)
+    void OnCollisionEnter2D(Collision2D col)
     {
 
         //if the tag is different from the collided object tag it runs the if statement 
-        if (dol.gameObject.tag != gameObject.tag)
+        if (col.gameObject.tag != gameObject.tag)
         {
 
             //If they hit you. they will call the varibles of what was hit. then do the maths
-            dol.gameObject.GetComponent<CollisionCombatScript>().hp = dol.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
+            col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
 
-            if (dol.gameObject.GetComponent<CollisionCombatScript>().hp <= 0)
+            if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0)
             {
-                Destroy(dol.gameObject);
+                DisableBall(col.gameObject);
             }
 
 
         }
 
+    }
+
+    //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
+    public void DisableBall(GameObject ball)
+    {
+        ball.GetComponent<CircleCollider2D>().enabled = false;
+        ball.GetComponent<SpriteRenderer>().enabled = false;
+        ball.GetComponent<CollisionCombatScript>().enabled = false;
+        ball.GetComponent<Rigidbody2D>().IsSleeping();
+        ball.SetActive(false);
     }
 
 }

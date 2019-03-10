@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionCombatScript : MonoBehaviour
 {
@@ -30,8 +31,11 @@ public class CollisionCombatScript : MonoBehaviour
     //Sound Control
     public AudioClip Injure;
     public AudioClip Death;
-   
-    
+
+    public Text hpAndDamageText;
+    public Canvas canvas;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,9 @@ public class CollisionCombatScript : MonoBehaviour
         {
             gameControllerScript = gameController.GetComponent<GameController>();
         }
+
+        canvas.worldCamera = Camera.main;
+        hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
     }
 
     void OnMouseDown()
@@ -80,6 +87,9 @@ public class CollisionCombatScript : MonoBehaviour
 
             }
         }
+
+        //lock gameobject rotation
+        gameObject.transform.rotation = Quaternion.identity;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -94,6 +104,8 @@ public class CollisionCombatScript : MonoBehaviour
             {
                 //If they hit you. they will call the varibles of what was hit. then do the maths
                 ballHitScript.hp = ballHitScript.hp - Attack;
+                hpAndDamageText.text = " / ";
+                hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
                 if (ballHitScript.hp <= 0 && IsAttack == true)
                 {
                     GetComponent<AudioSource>().PlayOneShot(Death);
@@ -110,13 +122,14 @@ public class CollisionCombatScript : MonoBehaviour
     
     }
 
-    //instead of using unity's built in Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
+    //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
     public void DisableBall(GameObject ball)
     {
         ball.GetComponent<CircleCollider2D>().enabled = false;
         ball.GetComponent<SpriteRenderer>().enabled = false;
         ball.GetComponent<CollisionCombatScript>().enabled = false;
         ball.GetComponent<Rigidbody2D>().IsSleeping();
+        ball.SetActive(false);
     }
 }
 /*
