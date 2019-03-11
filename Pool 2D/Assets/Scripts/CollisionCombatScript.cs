@@ -72,6 +72,8 @@ public class CollisionCombatScript : MonoBehaviour
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Where the ball should go is = to the ball position
                 direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL
+                force = Vector3.Distance(transform.position, mousePosition);
+                force = force * 5;
 
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -79,7 +81,7 @@ public class CollisionCombatScript : MonoBehaviour
                     IsActive = false;
                     isMoving = true;
                 }
-
+                /*
                 if (Input.GetAxis("Mouse ScrollWheel") > 0 && force < maxForce)
                 {
                     force += 50;
@@ -89,7 +91,7 @@ public class CollisionCombatScript : MonoBehaviour
                 {
                     force -= 50;
                 }
-
+                */
             }
         }
 
@@ -140,7 +142,6 @@ public class CollisionCombatScript : MonoBehaviour
                 else
                 {
                     GetComponent<AudioSource>().PlayOneShot(Injure);
-                    Debug.Log("Sound plays?");
                 }
                 IsAttack = false;
             }
