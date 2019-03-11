@@ -12,8 +12,12 @@ public class CollisionCombatScript : MonoBehaviour
     private float maxForce = 200;
     [SerializeField]
     private float minForce = 50;
+    public float multiplier;
     private Vector2 direction;
     public Rigidbody2D rb;
+    //Current and last few transforms
+    public bool isMoving;
+    public float speed; 
     //Stat controllers
     public float ballForce;
     public float hp;
@@ -46,6 +50,7 @@ public class CollisionCombatScript : MonoBehaviour
             gameControllerScript = gameController.GetComponent<GameController>();
         }
 
+        isMoving = false;
         canvas.worldCamera = Camera.main;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
     }
@@ -70,9 +75,9 @@ public class CollisionCombatScript : MonoBehaviour
 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    rb.AddForce(direction * force);
+                    rb.AddForce(direction * force * multiplier);
                     IsActive = false;
-                    gameControllerScript.playerActions++;
+                    isMoving = true;
                 }
 
                 if (Input.GetAxis("Mouse ScrollWheel") > 0 && force < maxForce)
@@ -90,6 +95,19 @@ public class CollisionCombatScript : MonoBehaviour
 
         //lock gameobject rotation
         gameObject.transform.rotation = Quaternion.identity;
+
+        speed = rb.velocity.magnitude;
+        if(speed < 0.2 && isMoving)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            isMoving = false;
+            gameControllerScript.playerActions++;
+        }
+
+        if (speed < 0.2)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -105,7 +123,15 @@ public class CollisionCombatScript : MonoBehaviour
                 //If they hit you. they will call the varibles of what was hit. then do the maths
                 ballHitScript.hp = ballHitScript.hp - Attack;
                 hpAndDamageText.text = " / ";
-                hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
+                hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+
+                //hacky way to fix the issue where the attacker takes damage
+                if(isMoving)
+                {
+                    hp += ballHitScript.Attack;
+                    hpAndDamageText.text = " / ";
+                    hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+                }
                 if (ballHitScript.hp <= 0 && IsAttack == true)
                 {
                     GetComponent<AudioSource>().PlayOneShot(Death);

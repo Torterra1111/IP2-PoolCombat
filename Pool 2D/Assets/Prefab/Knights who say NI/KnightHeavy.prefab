@@ -136,7 +136,10 @@ MonoBehaviour:
   force: 50
   maxForce: 200
   minForce: 50
+  multiplier: 1.5
   rb: {fileID: 0}
+  isMoving: 0
+  speed: 0
   ballForce: 0
   hp: 7
   Attack: 1
