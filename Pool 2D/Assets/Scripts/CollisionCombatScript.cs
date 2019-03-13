@@ -72,8 +72,10 @@ public class CollisionCombatScript : MonoBehaviour
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Where the ball should go is = to the ball position
                 direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL
+
+                
                 force = Vector3.Distance(transform.position, mousePosition);
-                force = force * 5;
+                force = force * 10;
 
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -110,6 +112,7 @@ public class CollisionCombatScript : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
         }
+  
     }
 
     void OnCollisionEnter2D(Collision2D col)

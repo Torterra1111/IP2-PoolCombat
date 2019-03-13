@@ -101,6 +101,7 @@ public class GameController : MonoBehaviour
                     player1BallsActive = false;
                     StartCoroutine(EndTurn());
                     currentState = TurnState.PLAYER2;
+                  
                 }
 
                 if (player2BallsActive)
@@ -109,6 +110,7 @@ public class GameController : MonoBehaviour
                     player2BallsActive = false;
                     StartCoroutine(EndTurn());
                     currentState = TurnState.PLAYER1;
+
                 }
 
             break;
