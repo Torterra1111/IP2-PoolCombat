@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class SpikeScript : MonoBehaviour
 {
-
-
     public Rigidbody2D rb;
-    public float ballForce;
-    public float hp;
     public float Attack;
 
-    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -24,18 +20,18 @@ public class SpikeScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag)
         {
+            CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
 
             //If they hit you. they will call the varibles of what was hit. then do the maths
-            col.gameObject.GetComponent<CollisionCombatScript>().hp = col.gameObject.GetComponent<CollisionCombatScript>().hp - Attack;
+            ballHitScript.hp = ballHitScript.hp - Attack;
+            ballHitScript.hpAndDamageText.text = " / ";
+            ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
 
-            if (col.gameObject.GetComponent<CollisionCombatScript>().hp <= 0)
+            if (ballHitScript.hp <= 0)
             {
                 DisableBall(col.gameObject);
             }
-
-
         }
-
     }
 
     //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 

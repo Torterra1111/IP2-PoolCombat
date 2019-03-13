@@ -11,9 +11,4 @@ public class GameDataScript : MonoBehaviour
     {
         DontDestroyOnLoad(this);
     }
-
-    void Update()
-    {
-        
-    }
 }

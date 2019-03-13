@@ -80,6 +80,13 @@ public class MenuScript : MonoBehaviour
         if (gameData != null)
         {
             gameDataScript = gameData.GetComponent<GameDataScript>();
+            gameDataScript.player1selection = 0;
+            gameDataScript.player2selection = 0;
+        }
+        else
+        {
+            gameData = new GameObject("GameData");
+            gameData.AddComponent<GameDataScript>();
         }
     }
 
