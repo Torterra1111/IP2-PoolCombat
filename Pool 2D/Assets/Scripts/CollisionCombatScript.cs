@@ -38,7 +38,8 @@ public class CollisionCombatScript : MonoBehaviour
 
     public Text hpAndDamageText;
     public Canvas canvas;
-
+    //Spite additiosn
+    public Sprite Ring;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,8 @@ public class CollisionCombatScript : MonoBehaviour
     {
         IsActive = true;
         IsAttack = true;
+        Ring = Instantiate(Ring,this.transform.position, Quaternion.identity);
+
     }
 
 
@@ -82,6 +85,7 @@ public class CollisionCombatScript : MonoBehaviour
                     rb.AddForce(direction * force * multiplier);
                     IsActive = false;
                     isMoving = true;
+                    Destroy(Ring);
                 }
                 /*
                 if (Input.GetAxis("Mouse ScrollWheel") > 0 && force < maxForce)

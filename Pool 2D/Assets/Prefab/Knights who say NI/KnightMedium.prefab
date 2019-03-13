@@ -404,6 +404,7 @@ MonoBehaviour:
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 5022673871316877138}
   canvas: {fileID: 1781393784091693354}
+  Ring: {fileID: 21300000, guid: d7a5e13c91e62b04e92586bfa421171f, type: 3}
 --- !u!95 &6541941660022347979
 Animator:
   serializedVersion: 3
@@ -532,3 +533,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 6541941660022347979}
+  rb: {fileID: 0}

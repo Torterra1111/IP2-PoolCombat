@@ -249,6 +249,7 @@ MonoBehaviour:
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 1693028525549016010}
   canvas: {fileID: 8071330836449274378}
+  Ring: {fileID: 21300000, guid: d7a5e13c91e62b04e92586bfa421171f, type: 3}
 --- !u!82 &445740454133828758
 AudioSource:
   m_ObjectHideFlags: 0
