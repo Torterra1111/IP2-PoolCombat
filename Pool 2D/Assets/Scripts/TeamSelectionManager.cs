@@ -9,20 +9,23 @@ public class TeamSelectionManager : MonoBehaviour
     //this class manages the players' team selection by having methods attached to buttons that write the correct value in GameDataScript
     public GameObject gameData;
     public GameDataScript gameDataScript;
-
+    //Player Turn order
     public bool player1Turn;
     public bool player2Turn = false;
-
+    //Turn Text
     public GameObject player1text;
     public GameObject player2text;
-
+    //Map selection
     public GameObject mapObj;
     public string sceneToLoad;
     public Text mapSelectionText;
     public Button[] maps;
-
+    //Button selection
     public Button[] teams;
-
+    //Map Music
+    public AudioClip Glacier;
+    public AudioClip Menu;
+    public AudioClip Music;
     void Start()
     {
         sceneToLoad = "";
@@ -32,6 +35,8 @@ public class TeamSelectionManager : MonoBehaviour
         {
             gameDataScript = gameData.GetComponent<GameDataScript>();
         }
+
+
     }
 
     void Update()
@@ -145,6 +150,7 @@ public class TeamSelectionManager : MonoBehaviour
                 }
             }
             maps[3].interactable = false;
+            Music = Glacier;
         }
     }
 

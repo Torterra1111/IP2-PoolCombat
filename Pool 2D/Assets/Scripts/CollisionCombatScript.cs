@@ -122,21 +122,18 @@ public class CollisionCombatScript : MonoBehaviour
         }
 
         //health check is no more inside the collision statement, now the balls can disappear whenever they reach 0 hp
+
         if (hp <= 0)
         {
             GetComponent<AudioSource>().PlayOneShot(Death);
             DisableBall(gameObject);
-        }
-        else
-        {
-            GetComponent<AudioSource>().PlayOneShot(Injure);
         }
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         //if the tag is different from the collided object tag it runs the if statement 
-        if (col.gameObject.tag != gameObject.tag && isMoving)
+        if (col.gameObject.tag != gameObject.tag && !isMoving)  //Not moving as main hits are taken when you hit a person when they are not moving.
         {
             //register a reference to the collided object script for simplicity and to prevents error when hitting something without tag
             CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
@@ -147,7 +144,7 @@ public class CollisionCombatScript : MonoBehaviour
                 ballHitScript.hp = ballHitScript.hp - Attack;
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
-
+                GetComponent<AudioSource>().PlayOneShot(Injure); //Moved this here untill a more suficent way of fiixng damage sound is found as sound would play always.
                 IsAttack = false;
             }
         }

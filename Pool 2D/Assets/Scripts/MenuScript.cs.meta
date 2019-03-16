@@ -3,7 +3,14 @@ guid: b0a091077ca3c064e835d7a938ddb9df
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - initialState: {instanceID: 0}
+  - teamSelectionState: {instanceID: 0}
+  - mapSelectionState: {instanceID: 0}
+  - teamSelectionManager: {instanceID: 0}
+  - gameDataScript: {instanceID: 0}
+  - gameData: {instanceID: 0}
+  - ButtonClick: {fileID: 8300000, guid: d135d975edccf1446a40e428947a21b9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

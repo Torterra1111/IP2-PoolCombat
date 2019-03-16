@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
+    //Game Object controllers
     public GameObject initialState;
     public GameObject teamSelectionState;
     public GameObject mapSelectionState;
-
+    //Game Data Controllers
     public TeamSelectionManager teamSelectionManager;
     public GameDataScript gameDataScript;
     public GameObject gameData;
+    //Sound Controllers for Menu
+    public AudioClip ButtonClick;
 
     public void PlayButton()
     {
@@ -20,6 +23,7 @@ public class MenuScript : MonoBehaviour
         teamSelectionState.SetActive(true);
 
         teamSelectionManager.playersChoose();
+        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void BackButton()
@@ -34,6 +38,7 @@ public class MenuScript : MonoBehaviour
 
         gameDataScript.player1selection = 0;
         gameDataScript.player2selection = 0;
+        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void SelectMapButton()
@@ -42,6 +47,7 @@ public class MenuScript : MonoBehaviour
         {
             teamSelectionState.SetActive(false);
             mapSelectionState.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(ButtonClick);
         }
     }
 
@@ -66,10 +72,12 @@ public class MenuScript : MonoBehaviour
         gameDataScript.player2selection = 0;
 
         PlayButton();
+        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void QuitGame()
     {
+        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
         Application.Quit();
     }
 
