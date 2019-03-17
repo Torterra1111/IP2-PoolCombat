@@ -23,9 +23,8 @@ public class TeamSelectionManager : MonoBehaviour
     //Button selection
     public Button[] teams;
     //Map Music (Could Be placed in an array)
-    public AudioClip Glacier; 
     public AudioClip Menu;
-    public AudioClip Music;
+
     void Start()
     {
         sceneToLoad = "";
@@ -35,8 +34,8 @@ public class TeamSelectionManager : MonoBehaviour
         {
             gameDataScript = gameData.GetComponent<GameDataScript>();
         }
-        Music = Menu;
-        //GetComponent<AudioSource>().PlayOneShot(Menu);
+     
+        GetComponent<AudioSource>().PlayOneShot(Menu);
     }
 
     void Update()
@@ -150,7 +149,7 @@ public class TeamSelectionManager : MonoBehaviour
                 }
             }
             maps[3].interactable = false;
-            Music = Glacier;
+        
         }
     }
 
