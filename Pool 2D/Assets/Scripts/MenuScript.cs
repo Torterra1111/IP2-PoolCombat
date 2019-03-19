@@ -23,7 +23,7 @@ public class MenuScript : MonoBehaviour
         teamSelectionState.SetActive(true);
 
         teamSelectionManager.playersChoose();
-        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void BackButton()
@@ -38,7 +38,7 @@ public class MenuScript : MonoBehaviour
 
         gameDataScript.player1selection = 0;
         gameDataScript.player2selection = 0;
-        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void SelectMapButton()
@@ -47,7 +47,7 @@ public class MenuScript : MonoBehaviour
         {
             teamSelectionState.SetActive(false);
             mapSelectionState.SetActive(true);
-            GetComponent<AudioSource>().PlayOneShot(ButtonClick);
+            gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
         }
     }
 
@@ -72,12 +72,12 @@ public class MenuScript : MonoBehaviour
         gameDataScript.player2selection = 0;
 
         PlayButton();
-        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
     public void QuitGame()
     {
-        GetComponent<AudioSource>().PlayOneShot(ButtonClick);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
         Application.Quit();
     }
 
