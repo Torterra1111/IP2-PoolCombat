@@ -42,7 +42,10 @@ public class CollisionCombatScript : MonoBehaviour
     //Spite additiosn
     public GameObject ring;
     //public GameObject CharacterRing;
-    // Start is called before the first frame update
+
+    bool ballDead;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,6 +55,7 @@ public class CollisionCombatScript : MonoBehaviour
             gameControllerScript = gameController.GetComponent<GameController>();
         }
 
+        ballDead = false;
         isMoving = false;
         canvas.worldCamera = Camera.main;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
@@ -126,7 +130,18 @@ public class CollisionCombatScript : MonoBehaviour
         if (hp <= 0)
         {
             GetComponent<AudioSource>().PlayOneShot(Death);
-            DisableBall(gameObject);
+            if (gameObject.tag == "Player1" && !ballDead)
+            {
+                ballDead = true;
+                gameControllerScript.player1DeadBalls++;
+            }
+            if (gameObject.tag == "Player2" && !ballDead)
+            {
+                ballDead = true;
+                gameControllerScript.player2DeadBalls++;
+            }
+
+            StartCoroutine(DisableBall());
         }
     }
 
@@ -151,14 +166,15 @@ public class CollisionCombatScript : MonoBehaviour
     
     }
 
-    //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
-    public void DisableBall(GameObject ball)
+    //we can use the coroutine to do death related stuff; particles, sound etc.
+    IEnumerator DisableBall()
     {
-        ball.GetComponent<CircleCollider2D>().enabled = false;
+        /*ball.GetComponent<CircleCollider2D>().enabled = false;
         ball.GetComponent<SpriteRenderer>().enabled = false;
         ball.GetComponent<CollisionCombatScript>().enabled = false;
-        ball.GetComponent<Rigidbody2D>().IsSleeping();
-        ball.SetActive(false);
+        ball.GetComponent<Rigidbody2D>().IsSleeping();*/
+        yield return new WaitForSeconds(0.5f); 
+        this.gameObject.SetActive(false);
     }
 }
 /*
