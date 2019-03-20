@@ -24,6 +24,8 @@ public class TeamSelectionManager : MonoBehaviour
     public Button[] teams;
     //Map Music (Could Be placed in an array)
     public AudioClip Menu;
+    //fade animator reference
+    public Animator fadeAnimator;
 
     void Start()
     {
@@ -175,8 +177,15 @@ public class TeamSelectionManager : MonoBehaviour
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0 && sceneToLoad != "")
         {
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+            StartCoroutine(FadeOut());
         }
+    }
+
+    IEnumerator FadeOut()
+    {
+        fadeAnimator.SetTrigger("fadeOut");
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);       
     }
 
     /*public void MapSelectionButton()
