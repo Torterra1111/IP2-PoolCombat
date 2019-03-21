@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class GameController : MonoBehaviour
     public Text player1TurnText;
     public Text player2TurnText;
 
+    public int player1DeadBalls;
+    public int player2DeadBalls;
+    public bool matchOver;
+    public Text winText;
+
     public enum TurnState
     {
         PLAYER1,
@@ -36,6 +42,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        player1DeadBalls = 0;
+        player2DeadBalls = 0;
+        matchOver = false;
         spawnScript = gameObject.GetComponent<SpawnScript>();
         gameData = GameObject.Find("GameData");
         if (gameData != null)
@@ -97,23 +106,26 @@ public class GameController : MonoBehaviour
 
                 if (player1BallsActive)
                 {
+                    int player1 = 1;
                     DeactivatePlayer1Balls();
                     player1BallsActive = false;
-                    StartCoroutine(EndTurn());
-                    currentState = TurnState.PLAYER2;
-                  
+                    StartCoroutine(EndTurn(player1));                
                 }
 
                 if (player2BallsActive)
                 {
+                    int player2 = 2;
                     DeactivatePlayer2Balls();
                     player2BallsActive = false;
-                    StartCoroutine(EndTurn());
-                    currentState = TurnState.PLAYER1;
-
+                    StartCoroutine(EndTurn(player2));
                 }
 
             break;
+        }
+
+        if (player1DeadBalls >= 3 || player2DeadBalls >= 3)
+        {
+            matchOver = true;
         }
     }
 
@@ -169,8 +181,45 @@ public class GameController : MonoBehaviour
         }
     } 
 
-    IEnumerator EndTurn()
+    IEnumerator EndTurn(int lastplayer)
     {
-        yield return new WaitForSeconds(3f);
+        //we can put here the things that need to happen at the end of the turn (animations, particles..)
+        yield return new WaitForSeconds(1f);
+        if (!matchOver)
+        {
+            if (lastplayer == 1)
+            {
+                currentState = TurnState.PLAYER2;
+            }
+
+            if (lastplayer == 2)
+            {
+                currentState = TurnState.PLAYER1;
+            }
+        }
+        else
+        {
+            if (player1DeadBalls >= 3)
+            {
+                winText.gameObject.SetActive(true);
+                winText.text = "Player2" + winText.text;
+            }
+
+            if (player2DeadBalls >= 3)
+            {
+                winText.gameObject.SetActive(true);
+                winText.text = "Player1" + winText.text;
+            }
+        }
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 }

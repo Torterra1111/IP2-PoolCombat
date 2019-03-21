@@ -42,16 +42,24 @@ public class CollisionCombatScript : MonoBehaviour
     //Spite additiosn
     public GameObject ring;
     //public GameObject CharacterRing;
-    // Start is called before the first frame update
+    
+    bool ballDead;
+    LineRenderer lineRenderer;
+    
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
+        lineRenderer = GetComponent<LineRenderer>();
         if (gameController != null)
         {
             gameControllerScript = gameController.GetComponent<GameController>();
         }
 
+        ballDead = false;
         isMoving = false;
         canvas.worldCamera = Camera.main;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
@@ -64,7 +72,7 @@ public class CollisionCombatScript : MonoBehaviour
         if (interactable)
         {
             ring.SetActive(true);
-        }
+        }        
     }
 
 
@@ -76,8 +84,29 @@ public class CollisionCombatScript : MonoBehaviour
             {
                 //Getting mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
                 //Direction is a new point to go to.
                 direction = (Vector2)(transform.position - mousePosition); 
+
+
+                //raycast to draw the trajectory still in progress, math is simple but im dumb
+                //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction); // layer mask 11 "Walls"
+
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, mousePosition);
+
+                /*
+                if (hit.collider != null)
+                {
+                    lineRenderer.SetPosition(1, hit.point);
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, mousePos);
+                }*/
+
+                //Where the ball should go is = to the ball position
+                direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL>>>>>>> 5cfeab362485c42cdfad7908bc93c5a9488f4693
 
                 //Distance between the two
                 force = Vector3.Distance(transform.position, mousePosition);
@@ -93,6 +122,10 @@ public class CollisionCombatScript : MonoBehaviour
                     rb.AddForce(direction * force * multiplier);
                     IsActive = false;
                     isMoving = true;
+
+                    //deactivate ring and reset linerenderer vertices 
+                    lineRenderer.SetPosition(0, Vector3.zero);
+                    lineRenderer.SetPosition(1, Vector3.zero);
                     ring.SetActive(false);
                 }
 
@@ -126,7 +159,18 @@ public class CollisionCombatScript : MonoBehaviour
         if (hp <= 0)
         {
             GetComponent<AudioSource>().PlayOneShot(Death);
-            DisableBall(gameObject);
+            if (gameObject.tag == "Player1" && !ballDead)
+            {
+                ballDead = true;
+                gameControllerScript.player1DeadBalls++;
+            }
+            if (gameObject.tag == "Player2" && !ballDead)
+            {
+                ballDead = true;
+                gameControllerScript.player2DeadBalls++;
+            }
+
+            StartCoroutine(DisableBall());
         }
     }
 
@@ -151,14 +195,15 @@ public class CollisionCombatScript : MonoBehaviour
     
     }
 
-    //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
-    public void DisableBall(GameObject ball)
+    //we can use the coroutine to do death related stuff; particles, sound etc.
+    IEnumerator DisableBall()
     {
-        ball.GetComponent<CircleCollider2D>().enabled = false;
+        /*ball.GetComponent<CircleCollider2D>().enabled = false;
         ball.GetComponent<SpriteRenderer>().enabled = false;
         ball.GetComponent<CollisionCombatScript>().enabled = false;
-        ball.GetComponent<Rigidbody2D>().IsSleeping();
-        ball.SetActive(false);
+        ball.GetComponent<Rigidbody2D>().IsSleeping();*/
+        yield return new WaitForSeconds(0.5f); 
+        this.gameObject.SetActive(false);
     }
 }
 /*

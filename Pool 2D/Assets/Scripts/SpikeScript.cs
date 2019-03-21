@@ -26,22 +26,6 @@ public class SpikeScript : MonoBehaviour
             ballHitScript.hp = ballHitScript.hp - Attack;
             ballHitScript.hpAndDamageText.text = " / ";
             ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
-
-            if (ballHitScript.hp <= 0)
-            {
-                DisableBall(col.gameObject);
-            }
         }
     }
-
-    //instead of using unity's Destroy method that removes a needed Game Object to populate playerBalls array, we disable the object's component 
-    public void DisableBall(GameObject ball)
-    {
-        ball.GetComponent<CircleCollider2D>().enabled = false;
-        ball.GetComponent<SpriteRenderer>().enabled = false;
-        ball.GetComponent<CollisionCombatScript>().enabled = false;
-        ball.GetComponent<Rigidbody2D>().IsSleeping();
-        ball.SetActive(false);
-    }
-
 }
