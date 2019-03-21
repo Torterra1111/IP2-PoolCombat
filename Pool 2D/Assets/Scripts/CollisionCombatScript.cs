@@ -76,10 +76,10 @@ public class CollisionCombatScript : MonoBehaviour
             {
                 //Getting mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                //Where the ball should go is = to the ball position
-                direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL
+                //Direction is a new point to go to.
+                direction = (Vector2)(transform.position - mousePosition); 
 
-                
+                //Distance between the two
                 force = Vector3.Distance(transform.position, mousePosition);
                 force = force * 6;
 
@@ -89,7 +89,7 @@ public class CollisionCombatScript : MonoBehaviour
                     {
                         force = maxForce;
                     }
-
+                    //Accual movment
                     rb.AddForce(direction * force * multiplier);
                     IsActive = false;
                     isMoving = true;

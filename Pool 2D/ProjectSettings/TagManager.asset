@@ -48,6 +48,9 @@ TagManager:
   - name: Environment
     uniqueID: 1337039677
     locked: 0
+  - name: Traps/Placeables
+    uniqueID: 4167549507
+    locked: 0
   - name: Characters
     uniqueID: 3170922643
     locked: 0
