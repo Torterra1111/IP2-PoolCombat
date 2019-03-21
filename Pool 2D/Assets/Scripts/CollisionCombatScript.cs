@@ -42,14 +42,18 @@ public class CollisionCombatScript : MonoBehaviour
     //Spite additiosn
     public GameObject ring;
     //public GameObject CharacterRing;
-
+    
     bool ballDead;
+    LineRenderer lineRenderer;
+    
+
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
+        lineRenderer = GetComponent<LineRenderer>();
         if (gameController != null)
         {
             gameControllerScript = gameController.GetComponent<GameController>();
@@ -68,7 +72,7 @@ public class CollisionCombatScript : MonoBehaviour
         if (interactable)
         {
             ring.SetActive(true);
-        }
+        }        
     }
 
 
@@ -80,6 +84,23 @@ public class CollisionCombatScript : MonoBehaviour
             {
                 //Getting mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                //raycast to draw the trajectory still in progress, math is simple but im dumb
+                //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction); // layer mask 11 "Walls"
+
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, mousePosition);
+
+                /*
+                if (hit.collider != null)
+                {
+                    lineRenderer.SetPosition(1, hit.point);
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, mousePos);
+                }*/
+
                 //Where the ball should go is = to the ball position
                 direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL
 
@@ -97,6 +118,10 @@ public class CollisionCombatScript : MonoBehaviour
                     rb.AddForce(direction * force * multiplier);
                     IsActive = false;
                     isMoving = true;
+
+                    //deactivate ring and reset linerenderer vertices 
+                    lineRenderer.SetPosition(0, Vector3.zero);
+                    lineRenderer.SetPosition(1, Vector3.zero);
                     ring.SetActive(false);
                 }
 
