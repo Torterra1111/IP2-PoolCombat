@@ -17,6 +17,8 @@ public class CollisionCombatScript : MonoBehaviour
     public Rigidbody2D rb;
     //bool to check ball's motion caused by the active player    
     public bool isMoving;
+    public float timeFromMovement;
+    public bool ballHasCollided;
     //reference velocity magnitude; gets updated each frame
     public float speed; 
     //Stat controllers
@@ -52,6 +54,8 @@ public class CollisionCombatScript : MonoBehaviour
 
     void Start()
     {
+        timeFromMovement = 0.0f;
+        ballHasCollided = false;
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
         lineRenderer = GetComponent<LineRenderer>();
@@ -137,23 +141,30 @@ public class CollisionCombatScript : MonoBehaviour
         gameObject.transform.rotation = Quaternion.identity;
 
         speed = rb.velocity.magnitude;
-        if(speed < 0.2 && isMoving)
+
+        if (isMoving)
         {
-            rb.velocity = new Vector3(0, 0, 0);
-            isMoving = false;
-            gameControllerScript.playerActions++;
+            timeFromMovement += Time.deltaTime;
+            if (speed < 0.2 && timeFromMovement > 1.5f)
+            {
+                rb.velocity = new Vector3(0, 0, 0);
+                isMoving = false;
+                timeFromMovement = 0.0f;
+                gameControllerScript.playerActions++;
+            }
         }
 
-        if (speed < 0.2)
+        if (speed < 0.2 && ballHasCollided)
         {
             rb.velocity = new Vector3(0, 0, 0);
+            ballHasCollided = false;
         }
 
         //health check is no more inside the collision statement, now the balls can disappear whenever they reach 0 hp
 
         if (hp <= 0)
         {
-            GetComponent<AudioSource>().PlayOneShot(Death);
+            
             if (gameObject.tag == "Player1" && !ballDead)
             {
                 ballDead = true;
@@ -172,7 +183,7 @@ public class CollisionCombatScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         //if the tag is different from the collided object tag it runs the if statement 
-        if (col.gameObject.tag != gameObject.tag && !isMoving)  //Not moving as main hits are taken when you hit a person when they are not moving.
+        if (col.gameObject.tag != gameObject.tag && isMoving) //isMoving means that this statement will run ONLY in the ball that has been moved by the player
         {
             //register a reference to the collided object script for simplicity and to prevents error when hitting something without tag
             CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
@@ -187,18 +198,19 @@ public class CollisionCombatScript : MonoBehaviour
                 IsAttack = false;
             }
         }
-    
+
+        ballHasCollided = true;
     }
 
     //we can use the coroutine to do death related stuff; particles, sound etc.
     IEnumerator DisableBall()
     {
-        /*ball.GetComponent<CircleCollider2D>().enabled = false;
-        ball.GetComponent<SpriteRenderer>().enabled = false;
-        ball.GetComponent<CollisionCombatScript>().enabled = false;
-        ball.GetComponent<Rigidbody2D>().IsSleeping();*/
-        yield return new WaitForSeconds(0.5f); 
-        this.gameObject.SetActive(false);
+        GetComponent<AudioSource>().PlayOneShot(Death);
+        yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
+        if (!isMoving)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }
 /*

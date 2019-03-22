@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     //In this script we will manage the turns and different state of the game (win, pause(?), etc)
-    public GameDataScript gameDataScript;
-    public GameObject gameData;
+    GameDataScript gameDataScript;
+    GameObject gameData;
 
-    public SpawnScript spawnScript;
+    SpawnScript spawnScript;
 
-    //variable used to spawn balls with the right tag, pls don't change the name it cracks me every time 
+    //variable used to spawn balls with the right tag
     public bool player1BallsHasSpawned = false;
 
     public int playerActions = 0;

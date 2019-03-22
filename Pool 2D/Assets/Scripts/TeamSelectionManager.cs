@@ -100,7 +100,7 @@ public class TeamSelectionManager : MonoBehaviour
         teams[1].interactable = false;
     }
 
-    public void TestScene()
+    /*public void TestScene()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
@@ -116,7 +116,7 @@ public class TeamSelectionManager : MonoBehaviour
             }
             maps[0].interactable = false;
         }
-    }
+    }*/
 
     public void LevelJungle()
     {
@@ -173,7 +173,7 @@ public class TeamSelectionManager : MonoBehaviour
         }
     }
 
-    public void LevelJapaneese()
+    public void LevelJapanese()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
@@ -187,7 +187,7 @@ public class TeamSelectionManager : MonoBehaviour
                     maps[i].interactable = true;
                 }
             }
-            maps[4].interactable = false;
+            maps[0].interactable = false;
         }
     }
     public void LoadSelectedMap()
