@@ -25,11 +25,13 @@ public class CollisionCombatScript : MonoBehaviour
     public float ballForce;
     public float hp;
     public float Attack;
+    public float Armour;
     bool ballDead;
     //Attack Controllers
     public bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
+    private bool SamuraiAbility = true;
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
@@ -50,7 +52,7 @@ public class CollisionCombatScript : MonoBehaviour
 
     Vector3 test;
 
-
+ 
 
     void Start()
     {
@@ -178,6 +180,8 @@ public class CollisionCombatScript : MonoBehaviour
 
             StartCoroutine(DisableBall());
         }
+
+        Damageboost();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -191,7 +195,7 @@ public class CollisionCombatScript : MonoBehaviour
             if (ballHitScript != null)
             {
                 //If they hit you. they will call the varibles of what was hit. then do the maths
-                ballHitScript.hp = ballHitScript.hp - Attack;
+                ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
                 GetComponent<AudioSource>().PlayOneShot(Injure); //Moved this here untill a more suficent way of fiixng damage sound is found as sound would play always.
@@ -212,7 +216,24 @@ public class CollisionCombatScript : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+    void Damageboost()
+    {
+        
+        if (gameObject.tag == "PlayerSamurai" && hp < 3)
+        {
+            Attack = Attack + 1;
+            SamuraiAbility = false;
+        }
+
+
+    }
+
+
+
 }
+
+
 /*
     void PlaySound(int TakingDamage)
     {
