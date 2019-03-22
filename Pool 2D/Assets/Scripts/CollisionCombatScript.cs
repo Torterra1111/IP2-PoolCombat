@@ -23,6 +23,7 @@ public class CollisionCombatScript : MonoBehaviour
     public float ballForce;
     public float hp;
     public float Attack;
+    bool ballDead;
     //Attack Controllers
     public bool IsActive = false;
     private bool IsAttack = false;
@@ -42,10 +43,10 @@ public class CollisionCombatScript : MonoBehaviour
     //Spite additiosn
     public GameObject ring;
     //public GameObject CharacterRing;
-    
-    bool ballDead;
     LineRenderer lineRenderer;
-    
+    LineRenderer Liners;
+
+    Vector3 test;
 
 
 
@@ -86,15 +87,15 @@ public class CollisionCombatScript : MonoBehaviour
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 //Direction is a new point to go to.
-                direction = (Vector2)(transform.position - mousePosition); 
-
+                direction = (Vector2)(transform.position - mousePosition);
+                test = (Vector3)(transform.position - mousePosition);
 
                 //raycast to draw the trajectory still in progress, math is simple but im dumb
                 //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction); // layer mask 11 "Walls"
 
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, mousePosition);
-
+                
                 /*
                 if (hit.collider != null)
                 {
@@ -106,9 +107,9 @@ public class CollisionCombatScript : MonoBehaviour
                 }*/
 
                 //Where the ball should go is = to the ball position
-                direction = (Vector2)(transform.position - mousePosition); // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL>>>>>>> 5cfeab362485c42cdfad7908bc93c5a9488f4693
+                // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL>>>>>>> 
 
-                //Distance between the two
+
                 force = Vector3.Distance(transform.position, mousePosition);
                 force = force * 6;
 
@@ -119,7 +120,7 @@ public class CollisionCombatScript : MonoBehaviour
                         force = maxForce;
                     }
                     //Accual movment
-                    rb.AddForce(direction * force * multiplier);
+                    rb.AddForce(test * force * multiplier);
                     IsActive = false;
                     isMoving = true;
 
@@ -127,14 +128,8 @@ public class CollisionCombatScript : MonoBehaviour
                     lineRenderer.SetPosition(0, Vector3.zero);
                     lineRenderer.SetPosition(1, Vector3.zero);
                     ring.SetActive(false);
+                    
                 }
-
-                /*
-                if (Input.GetAxis("Mouse ScrollWheel") < 0 && force > minForce)
-                {
-                    force -= 50;
-                }
-                */
             }
         }
 
