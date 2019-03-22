@@ -23,6 +23,7 @@ public class CollisionCombatScript : MonoBehaviour
     public float ballForce;
     public float hp;
     public float Attack;
+    public float Armour;
     bool ballDead;
     //Attack Controllers
     public bool IsActive = false;
@@ -180,7 +181,7 @@ public class CollisionCombatScript : MonoBehaviour
             if (ballHitScript != null)
             {
                 //If they hit you. they will call the varibles of what was hit. then do the maths
-                ballHitScript.hp = ballHitScript.hp - Attack;
+                ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
                 GetComponent<AudioSource>().PlayOneShot(Injure); //Moved this here untill a more suficent way of fiixng damage sound is found as sound would play always.

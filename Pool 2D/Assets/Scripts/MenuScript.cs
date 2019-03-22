@@ -14,7 +14,9 @@ public class MenuScript : MonoBehaviour
     public GameObject gameData;
     //Sound Controllers for Menu
     public AudioClip ButtonClick;
-
+    //Class Desc
+    public GameObject KnightDesc;
+    public GameObject SamuraiDesc;
     public void PlayButton()
     {
         //activate correct buttons and UI elements set and call playerChoose()
@@ -98,6 +100,22 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    public void ShowKnight()
+    {
+        KnightDesc.SetActive(true);
+    }
+    public void ShowSamurai()
+    {
+        SamuraiDesc.SetActive(true);
+    }
+    public void HideKnight()
+    {
+        KnightDesc.SetActive(false);
+    }
+    public void HideSamurai()
+    {
+        SamuraiDesc.SetActive(false);
+    }
     void Update()
     {
         
