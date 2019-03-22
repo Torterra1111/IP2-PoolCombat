@@ -3252,7 +3252,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "At full HP Gain +1 Attack, \nSamurai Will always go 1st."
+  m_Text: 'At Low HP
+
+    Gain 1 Attack.'
 --- !u!222 &1747635572
 CanvasRenderer:
   m_ObjectHideFlags: 0

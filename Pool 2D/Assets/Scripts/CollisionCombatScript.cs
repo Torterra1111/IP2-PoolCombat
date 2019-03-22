@@ -29,6 +29,7 @@ public class CollisionCombatScript : MonoBehaviour
     public bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
+    private bool SamuraiAbility = true;
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
@@ -49,7 +50,7 @@ public class CollisionCombatScript : MonoBehaviour
 
     Vector3 test;
 
-
+ 
 
     void Start()
     {
@@ -168,6 +169,8 @@ public class CollisionCombatScript : MonoBehaviour
 
             StartCoroutine(DisableBall());
         }
+
+        Damageboost();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -201,7 +204,24 @@ public class CollisionCombatScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f); 
         this.gameObject.SetActive(false);
     }
+
+    void Damageboost()
+    {
+        
+        if (gameObject.tag == "PlayerSamurai" && hp < 3)
+        {
+            Attack = Attack + 1;
+            SamuraiAbility = false;
+        }
+
+
+    }
+
+
+
 }
+
+
 /*
     void PlaySound(int TakingDamage)
     {
