@@ -34,8 +34,7 @@ public class GameController : MonoBehaviour
     {
         PLAYER1,
         PLAYER2,
-        ENDTURN,
-        ENDMATCH
+        ENDTURN
     }
 
     public TurnState currentState;
@@ -134,11 +133,15 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < player1Balls.Length; i++)
         {
             CollisionCombatScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionCombatScript>();
-            if (!collisionScriptToCheck.interactable)
+            collisionScriptToCheck.interactable = true;
+            collisionScriptToCheck.IsActive = false;
+
+
+            /*if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
                 collisionScriptToCheck.IsActive = false;
-            }
+            }*/
         }
     }
 
@@ -147,11 +150,14 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < player1Balls.Length; i++)
         {
             CollisionCombatScript collisionScriptToCheck = player1Balls[i].GetComponent<CollisionCombatScript>();
-            if (collisionScriptToCheck.interactable)
+            collisionScriptToCheck.interactable = false;
+            collisionScriptToCheck.IsActive = false;
+
+            /*if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;
                 collisionScriptToCheck.IsActive = false;
-            }
+            }*/
         }
     }
 
@@ -160,11 +166,14 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < player2Balls.Length; i++)
         {
             CollisionCombatScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionCombatScript>();
-            if (!collisionScriptToCheck.interactable)
+            collisionScriptToCheck.interactable = true;
+            collisionScriptToCheck.IsActive = false;
+
+            /*if (!collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = true;
                 collisionScriptToCheck.IsActive = false;
-            }
+            }*/
         }
     }
 
@@ -173,11 +182,14 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < player2Balls.Length; i++)
         {
             CollisionCombatScript collisionScriptToCheck = player2Balls[i].GetComponent<CollisionCombatScript>();
-            if (collisionScriptToCheck.interactable)
+            collisionScriptToCheck.interactable = false;
+            collisionScriptToCheck.IsActive = false;
+
+            /*if (collisionScriptToCheck.interactable)
             {
                 collisionScriptToCheck.interactable = false;
                 collisionScriptToCheck.IsActive = false;
-            }
+            }*/
         }
     } 
 

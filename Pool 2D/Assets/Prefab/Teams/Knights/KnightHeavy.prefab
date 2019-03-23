@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4273188561619606770}
   m_Layer: 9
   m_Name: KnightHeavy
-  m_TagString: PlayerKnight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,13 +140,16 @@ MonoBehaviour:
   multiplier: 1.5
   rb: {fileID: 0}
   isMoving: 0
+  timeFromMovement: 0
+  ballHasCollided: 0
   speed: 0
   ballForce: 0
   hp: 7
-  Attack: 0
+  Attack: 1
   Armour: 1
   IsActive: 0
   interactable: 0
+  samuraiAbility: 0
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 3192544869925312961}

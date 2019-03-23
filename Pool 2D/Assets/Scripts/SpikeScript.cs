@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float Attack;
+    public int Attack;
 
    
     // Start is called before the first frame update

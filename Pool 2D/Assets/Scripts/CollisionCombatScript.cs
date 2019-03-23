@@ -23,15 +23,17 @@ public class CollisionCombatScript : MonoBehaviour
     public float speed; 
     //Stat controllers
     public float ballForce;
-    public float hp;
-    public float Attack;
-    public float Armour;
+    public int hp;
+    public int Attack;
+    public int Armour;
     bool ballDead;
     //Attack Controllers
     public bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
-    private bool SamuraiAbility = true;
+    public bool samuraiAbility = false;
+    bool samuraiAbilityActive = false;
+
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
@@ -58,6 +60,7 @@ public class CollisionCombatScript : MonoBehaviour
     {
         timeFromMovement = 0.0f;
         ballHasCollided = false;
+        samuraiAbilityActive = false;
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
         lineRenderer = GetComponent<LineRenderer>();
@@ -68,16 +71,15 @@ public class CollisionCombatScript : MonoBehaviour
 
         ballDead = false;
         isMoving = false;
-        canvas.worldCamera = Camera.main;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
     }
 
     void OnMouseDown()
     {
-        IsActive = true;
-        IsAttack = true;
-        if (interactable)
+        if (interactable && gameControllerScript.playerActions < gameControllerScript.maxActionPerTurn)
         {
+            IsActive = true;
+            IsAttack = true;
             ring.SetActive(true);
         }        
     }
@@ -130,11 +132,12 @@ public class CollisionCombatScript : MonoBehaviour
                     IsActive = false;
                     isMoving = true;
 
+                    DisableOtherBalls();
+
                     //deactivate ring and reset linerenderer vertices 
                     lineRenderer.SetPosition(0, Vector3.zero);
                     lineRenderer.SetPosition(1, Vector3.zero);
                     ring.SetActive(false);
-                    
                 }
             }
         }
@@ -153,6 +156,7 @@ public class CollisionCombatScript : MonoBehaviour
                 isMoving = false;
                 timeFromMovement = 0.0f;
                 gameControllerScript.playerActions++;
+                Debug.Log("ball stopped and playerActions++");
             }
         }
 
@@ -162,32 +166,34 @@ public class CollisionCombatScript : MonoBehaviour
             ballHasCollided = false;
         }
 
-        //health check is no more inside the collision statement, now the balls can disappear whenever they reach 0 hp
-
-        if (hp <= 0)
+        if (samuraiAbility && !samuraiAbilityActive && hp < 3)
         {
-            
-            if (gameObject.tag == "Player1" && !ballDead)
-            {
-                ballDead = true;
-                gameControllerScript.player1DeadBalls++;
-            }
-            if (gameObject.tag == "Player2" && !ballDead)
-            {
-                ballDead = true;
-                gameControllerScript.player2DeadBalls++;
-            }
-
-            StartCoroutine(DisableBall());
+            samuraiAbilityActive = true;
+            SamuraiDamageBoost();
         }
 
-        Damageboost();
+        //health check is no more inside the collision statement, now the balls can disappear whenever they reach 0 hp
+
+        if (hp <= 0 && !ballDead)
+        {
+            
+            if (gameObject.tag == "Player1")
+            {
+                gameControllerScript.player1DeadBalls++;
+            }
+            if (gameObject.tag == "Player2")
+            {
+                gameControllerScript.player2DeadBalls++;
+            }
+            ballDead = true;
+            StartCoroutine(DisableBall());
+        }       
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         //if the tag is different from the collided object tag it runs the if statement 
-        if (col.gameObject.tag != gameObject.tag && isMoving) //isMoving means that this statement will run ONLY in the ball that has been moved by the player
+        if (col.gameObject.tag != gameObject.tag && isMoving && !ballDead) //isMoving means that this statement will run ONLY in the ball's instance that has been moved by the player
         {
             //register a reference to the collided object script for simplicity and to prevents error when hitting something without tag
             CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
@@ -209,28 +215,37 @@ public class CollisionCombatScript : MonoBehaviour
     //we can use the coroutine to do death related stuff; particles, sound etc.
     IEnumerator DisableBall()
     {
-        GetComponent<AudioSource>().PlayOneShot(Death);
-        yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
-        if (!isMoving)
-        {
+            GetComponent<AudioSource>().PlayOneShot(Death);
+            yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
             this.gameObject.SetActive(false);
-        }
     }
 
-    void Damageboost()
+    void SamuraiDamageBoost()
+    {      
+                Attack++;
+                hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+    }
+
+    void DisableOtherBalls()
     {
-        
-        if (gameObject.tag == "PlayerSamurai" && hp < 3)
+        if (gameObject.tag == "Player1")
         {
-            Attack = Attack + 1;
-            SamuraiAbility = false;
+            foreach (GameObject ball in gameControllerScript.player1Balls)
+            {
+                CollisionCombatScript collisionCombatScript = ball.GetComponent<CollisionCombatScript>();
+                collisionCombatScript.interactable = false;
+            }
         }
 
-
+        if (gameObject.tag == "Player2")
+        {
+            foreach (GameObject ball in gameControllerScript.player2Balls)
+            {
+                CollisionCombatScript collisionCombatScript = ball.GetComponent<CollisionCombatScript>();
+                collisionCombatScript.interactable = false;
+            }
+        }
     }
-
-
-
 }
 
 
