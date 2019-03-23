@@ -215,7 +215,9 @@ public class CollisionCombatScript : MonoBehaviour
     //we can use the coroutine to do death related stuff; particles, sound etc.
     IEnumerator DisableBall()
     {
+            
             GetComponent<AudioSource>().PlayOneShot(Death);
+            rb.velocity = new Vector3(0, 0, 0);
             yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
             this.gameObject.SetActive(false);
     }
