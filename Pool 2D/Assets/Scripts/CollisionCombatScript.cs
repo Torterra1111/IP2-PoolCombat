@@ -224,8 +224,9 @@ public class CollisionCombatScript : MonoBehaviour
 
     void SamuraiDamageBoost()
     {      
-                Attack++;
-                hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+        Attack++;
+        hpAndDamageText.text = " / ";
+        hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
     }
 
     void DisableOtherBalls()
