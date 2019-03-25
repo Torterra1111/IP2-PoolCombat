@@ -45,10 +45,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Environment
+  - name: Background
     uniqueID: 1337039677
     locked: 0
-  - name: Traps/Placeables
+  - name: Walls
+    uniqueID: 1035585273
+    locked: 0
+  - name: Traps
     uniqueID: 4167549507
     locked: 0
   - name: Characters

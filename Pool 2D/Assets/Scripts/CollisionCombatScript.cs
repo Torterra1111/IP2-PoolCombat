@@ -9,7 +9,7 @@ public class CollisionCombatScript : MonoBehaviour
     [SerializeField]
     private float force = 50f;
     [SerializeField]
-    private float maxForce = 200f;
+    private float maxForce = 150f;
     [SerializeField]
     private float minForce = 50f;
     public float multiplier;
