@@ -17,6 +17,7 @@ public class MenuScript : MonoBehaviour
     //Class Desc
     public GameObject KnightDesc;
     public GameObject SamuraiDesc;
+    public GameObject SpartansDesc;
     public void PlayButton()
     {
         //activate correct buttons and UI elements set and call playerChoose()
@@ -108,6 +109,10 @@ public class MenuScript : MonoBehaviour
     {
         SamuraiDesc.SetActive(true);
     }
+    public void ShowSpartans()
+    {
+        SpartansDesc.SetActive(true);
+    }
     public void HideKnight()
     {
         KnightDesc.SetActive(false);
@@ -116,8 +121,9 @@ public class MenuScript : MonoBehaviour
     {
         SamuraiDesc.SetActive(false);
     }
-    void Update()
+    public void HideSpartans()
     {
-        
+        SpartansDesc.SetActive(false);
     }
+
 }

@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 7495399091142004241}
   - component: {fileID: 7495399091142004246}
   - component: {fileID: 7495399091142004247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpartanHeavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7495399091142004244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.95, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25036213, y: 0.226713, z: 1}
   m_Children:
   - {fileID: 8984703853304459387}
@@ -253,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1124044653
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 40c44269620f5064aa8ccb0210f68de9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -280,7 +280,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.95
   m_AngularDrag: 0.95
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 065e9e02b4b84e04daf4ec7554dbc87f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 50
-  maxForce: 150
+  maxForce: 100
   minForce: 50
-  multiplier: 0
+  multiplier: 1.5
   rb: {fileID: 0}
   isMoving: 0
   timeFromMovement: 0
@@ -330,6 +330,7 @@ MonoBehaviour:
   IsActive: 0
   interactable: 0
   samuraiAbility: 0
+  spartansAbility: 1
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 1366030349977041296}
@@ -448,7 +449,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ede483fb4a10de24e844e62d287bca1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -607,6 +608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8984703853304459387}
     m_Modifications:
+    - target: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7644913468834558172, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
         type: 3}
       propertyPath: m_LocalPosition.x

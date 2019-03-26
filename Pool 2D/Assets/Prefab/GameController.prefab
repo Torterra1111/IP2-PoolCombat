@@ -44,9 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad801b6173c1e41a95adefbac68de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameDataScript: {fileID: 0}
-  gameData: {fileID: 0}
-  spawnScript: {fileID: 0}
   player1BallsHasSpawned: 0
   playerActions: 0
   maxActionPerTurn: 1
@@ -56,6 +53,10 @@ MonoBehaviour:
   player2Balls: []
   player1TurnText: {fileID: 0}
   player2TurnText: {fileID: 0}
+  player1DeadBalls: 0
+  player2DeadBalls: 0
+  matchOver: 0
+  winText: {fileID: 0}
   currentState: 0
 --- !u!114 &2680030757040527691
 MonoBehaviour:
@@ -77,6 +78,10 @@ MonoBehaviour:
   - {fileID: 1632204619, guid: 29e4a24f7204ca1419994b6eea390a47, type: 3}
   - {fileID: 4841579412015212961, guid: bd10d8e756eceba4abbd46f29e305924, type: 3}
   - {fileID: 8231267242727658959, guid: 9a6bc8367aecdf44690bbf7b979691d8, type: 3}
+  spartans:
+  - {fileID: 7495399091142004244, guid: 60ea709f79a65e3499ef0ca2fe09d0e6, type: 3}
+  - {fileID: 1337781651416714484, guid: f565a797014e4d142bb143c870f9d020, type: 3}
+  - {fileID: 95967554089228911, guid: 2ede9da249c8cdc459418ab35327b3d9, type: 3}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}

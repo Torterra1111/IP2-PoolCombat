@@ -100,23 +100,24 @@ public class TeamSelectionManager : MonoBehaviour
         teams[1].interactable = false;
     }
 
-    /*public void TestScene()
+    public void Spartans()
     {
-        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
+        if (gameDataScript.player1selection == 0 && player1Turn)
         {
-            sceneToLoad = "SampleScene";
-            mapSelectionText.text = " selected";
-            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
-            for (int i = 0; i < maps.Length; i++)
-            {
-                if (maps[i].interactable == false)
-                {
-                    maps[i].interactable = true;
-                }
-            }
-            maps[0].interactable = false;
+            gameDataScript.player1selection = 3;
+            player1text.SetActive(false);
+            player2text.SetActive(true);
         }
-    }*/
+
+        if (gameDataScript.player2selection == 0 && player2Turn)
+        {
+            gameDataScript.player2selection = 3;
+        }
+
+        teams[2].interactable = false;
+    }
+
+    //methods attached to buttons to write in sceneToLoad the name of the scene to load 
 
     public void LevelJungle()
     {

@@ -7,6 +7,7 @@ public class SpawnScript : MonoBehaviour
     //every team has its array filled in the editor with prefabs
     public GameObject[] samurai;
     public GameObject[] knights;
+    public GameObject[] spartans;
 
     //a 6 elements array that retains the positions where the balls need to spawn
     public Transform[] spawnPoints;
@@ -98,6 +99,43 @@ public class SpawnScript : MonoBehaviour
             {
                 GameObject knightLight = Instantiate(knights[2], spawnPoints[5].position, Quaternion.identity);
                 knightLight.tag = "Player2";
+            }
+        }
+
+        //spartans team spawn
+        if (team == 3)
+        {
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject spartansHeavy = Instantiate(spartans[0], spawnPoints[0].position, Quaternion.identity);
+                spartansHeavy.tag = "Player1";
+            }
+            else
+            {
+                GameObject spartansHeavy = Instantiate(spartans[0], spawnPoints[3].position, Quaternion.identity);
+                spartansHeavy.tag = "Player2";
+            }
+
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject spartansMedium = Instantiate(spartans[1], spawnPoints[1].position, Quaternion.identity);
+                spartansMedium.tag = "Player1";
+            }
+            else
+            {
+                GameObject spartansMedium = Instantiate(spartans[1], spawnPoints[4].position, Quaternion.identity);
+                spartansMedium.tag = "Player2";
+            }
+
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject spartansLight = Instantiate(spartans[2], spawnPoints[2].position, Quaternion.identity);
+                spartansLight.tag = "Player1";
+            }
+            else
+            {
+                GameObject spartansLight = Instantiate(spartans[2], spawnPoints[5].position, Quaternion.identity);
+                spartansLight.tag = "Player2";
             }
         }
     }

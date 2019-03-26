@@ -32,7 +32,9 @@ public class CollisionCombatScript : MonoBehaviour
     private bool IsAttack = false;
     public bool interactable = false;
     public bool samuraiAbility = false;
+    public bool spartansAbility = false;
     bool samuraiAbilityActive = false;
+    bool spartansAbilityActive = false;
 
     //Game Controllers
     GameController gameControllerScript;
@@ -172,6 +174,21 @@ public class CollisionCombatScript : MonoBehaviour
             SamuraiDamageBoost();
         }
 
+        if (spartansAbility && !spartansAbilityActive)
+        {
+            if (gameObject.tag == "Player1" && gameControllerScript.player1DeadBalls >= 2)
+            {
+                spartansAbilityActive = true;
+                SpartansDamageBoost();
+            }
+
+            if (gameObject.tag == "Player2" && gameControllerScript.player2DeadBalls >= 2)
+            {
+                spartansAbilityActive = true;
+                SpartansDamageBoost();
+            }
+        }
+
         //health check is no more inside the collision statement, now the balls can disappear whenever they reach 0 hp
 
         if (hp <= 0 && !ballDead)
@@ -225,6 +242,13 @@ public class CollisionCombatScript : MonoBehaviour
     void SamuraiDamageBoost()
     {      
         Attack++;
+        hpAndDamageText.text = " / ";
+        hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+    }
+
+    void SpartansDamageBoost()
+    {
+        Attack += 3;
         hpAndDamageText.text = " / ";
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
     }
