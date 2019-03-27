@@ -74,6 +74,7 @@ public class CollisionCombatScript : MonoBehaviour
         ballDead = false;
         isMoving = false;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
+        
     }
 
     void OnMouseDown()
@@ -235,6 +236,7 @@ public class CollisionCombatScript : MonoBehaviour
             
             GetComponent<AudioSource>().PlayOneShot(Death);
             rb.velocity = new Vector3(0, 0, 0);
+            this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
             this.gameObject.SetActive(false);
     }

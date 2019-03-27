@@ -82,13 +82,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4433467092450603410}
+  - component: {fileID: 5529226996045856097}
   - component: {fileID: 8557535349757638849}
   - component: {fileID: 1737734179170333943}
   - component: {fileID: 752015415293227893}
   - component: {fileID: 7733688616834451844}
   - component: {fileID: 6407609937324909998}
   - component: {fileID: 742861192879077895}
+  - component: {fileID: 6288070023350219864}
   m_Layer: 9
   m_Name: SamuraiLight
   m_TagString: Untagged
@@ -96,8 +97,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4433467092450603410
-Transform:
+--- !u!224 &5529226996045856097
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,6 +112,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 6.72, y: 7.73}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &8557535349757638849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,7 +152,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1124044653
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a027e774b9cae51419ffaad87f14aba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -224,6 +230,7 @@ MonoBehaviour:
   IsActive: 0
   interactable: 0
   samuraiAbility: 1
+  spartansAbility: 0
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 8024425110522033666}
@@ -360,7 +367,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1124044653
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -420,6 +427,14 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!222 &6288070023350219864
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504733684464180744}
+  m_CullTransparentMesh: 0
 --- !u!1 &3742755103036487864
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,13 +547,13 @@ RectTransform:
   - {fileID: 8628007313732131038}
   - {fileID: 4669336873480486104}
   - {fileID: 6861055306446597780}
-  m_Father: {fileID: 4433467092450603410}
+  m_Father: {fileID: 5529226996045856097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.67}
-  m_SizeDelta: {x: 1369.3, y: 1213}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -1.6}
+  m_SizeDelta: {x: 1400.052, y: 1213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &704343132124112662
 Canvas:
