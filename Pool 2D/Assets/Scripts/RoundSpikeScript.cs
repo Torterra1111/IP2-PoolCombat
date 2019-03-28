@@ -20,26 +20,23 @@ public class RoundSpikeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(Travel());
        
-        do
-        {
-            new WaitForSeconds(5.0f);
-            transform.position = Vector3.Lerp(Waypoint, Waypoint2, 2.0f);
-            transform.position = Vector3.Lerp(Waypoint2, Waypoint, 2.0f);
-
-        } while (travel);
-
-
+           
     }
 
-    void Travel1()
-    {
-        transform.position = Vector3.Lerp(Waypoint, Waypoint2, 2.0f);
 
+    IEnumerator Travel()
+    {
+        
+        transform.position = Vector3.Lerp(Waypoint, Waypoint2, 10.0f);
+        yield return new WaitForSeconds(1.0f);
+        transform.position = Vector3.Lerp(Waypoint2, Waypoint, 10.0f);
+        new WaitForSeconds(1.0f);
     }
     void Travel2()
     {
         transform.position = Vector3.Lerp(Waypoint2, Waypoint, 2.0f);
-
+        new WaitForSeconds(5.0f);
     }
 }
