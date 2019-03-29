@@ -173,7 +173,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1124044653
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 310a6b21db7dd99439aa0079eb890f8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -238,7 +238,6 @@ MonoBehaviour:
   force: 50
   maxForce: 100
   minForce: 50
-  multiplier: 1.5
   rb: {fileID: 0}
   isMoving: 0
   timeFromMovement: 0
@@ -251,11 +250,14 @@ MonoBehaviour:
   IsActive: 0
   interactable: 0
   samuraiAbility: 1
+  spartansAbility: 0
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 1693028525549016010}
   canvas: {fileID: 8071330836449274378}
   ring: {fileID: 542831749372568170}
+  hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
+    type: 3}
 --- !u!82 &445740454133828758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -387,7 +389,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1124044653
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}

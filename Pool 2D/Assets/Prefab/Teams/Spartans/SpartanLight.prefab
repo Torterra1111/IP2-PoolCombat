@@ -137,7 +137,6 @@ MonoBehaviour:
   force: 50
   maxForce: 100
   minForce: 50
-  multiplier: 1.5
   rb: {fileID: 0}
   isMoving: 0
   timeFromMovement: 0
@@ -156,6 +155,8 @@ MonoBehaviour:
   hpAndDamageText: {fileID: 2980785913737579523}
   canvas: {fileID: 8803650156997572213}
   ring: {fileID: 2534793599523611037}
+  hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
+    type: 3}
 --- !u!82 &95967554089228909
 AudioSource:
   m_ObjectHideFlags: 0

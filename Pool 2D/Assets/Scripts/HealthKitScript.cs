@@ -9,8 +9,7 @@ public class HealthKitScript : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-      
+        rb = GetComponent<Rigidbody2D>();     
     }
 
     void OnTriggerEnter2D (Collider2D Col)

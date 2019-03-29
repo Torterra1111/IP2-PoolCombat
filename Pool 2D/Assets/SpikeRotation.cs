@@ -9,6 +9,6 @@ public class SpikeRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Rotate(0, 0, rotationAmount, Space.Self);
+        gameObject.transform.Rotate(0, 0, rotationAmount);
     }
 }

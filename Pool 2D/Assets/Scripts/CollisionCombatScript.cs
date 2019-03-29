@@ -12,7 +12,7 @@ public class CollisionCombatScript : MonoBehaviour
     private float maxForce = 150f;
     [SerializeField]
     private float minForce = 50f;
-    public float multiplier;
+
     private Vector2 direction;
     public Rigidbody2D rb;
     //bool to check ball's motion caused by the active player    
@@ -31,6 +31,8 @@ public class CollisionCombatScript : MonoBehaviour
     public bool IsActive = false;
     private bool IsAttack = false;
     public bool interactable = false;
+
+    //abilities activators
     public bool samuraiAbility = false;
     public bool spartansAbility = false;
     bool samuraiAbilityActive = false;
@@ -56,7 +58,7 @@ public class CollisionCombatScript : MonoBehaviour
 
     Vector3 test;
 
- 
+    public GameObject hitEffect;
 
     void Start()
     {
@@ -124,14 +126,15 @@ public class CollisionCombatScript : MonoBehaviour
                 force = Vector3.Distance(transform.position, mousePosition);
                 force = force * 6;
 
+                if (force > maxForce)
+                {
+                    force = maxForce;
+                }
+
                 if (Input.GetMouseButtonUp(0))
                 {
-                    if (force > maxForce)
-                    {
-                        force = maxForce;
-                    }
                     //Accual movment
-                    rb.AddForce(test * force * multiplier);
+                    rb.AddForce(test * force);
                     IsActive = false;
                     isMoving = true;
 
@@ -213,12 +216,15 @@ public class CollisionCombatScript : MonoBehaviour
         //if the tag is different from the collided object tag it runs the if statement 
         if (col.gameObject.tag != gameObject.tag && isMoving && !ballDead) //isMoving means that this statement will run ONLY in the ball's instance that has been moved by the player
         {
+            //register reference to the first collision contact point
+            Vector2 contactPoint = col.GetContact(0).point;
+
             //register a reference to the collided object script for simplicity and to prevents error when hitting something without tag
             CollisionCombatScript ballHitScript = col.gameObject.GetComponent<CollisionCombatScript>();
 
             if (ballHitScript != null)
             {
-                //If they hit you. they will call the varibles of what was hit. then do the maths
+                Instantiate(hitEffect, contactPoint, Quaternion.identity);
                 ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();

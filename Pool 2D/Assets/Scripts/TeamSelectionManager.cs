@@ -73,14 +73,14 @@ public class TeamSelectionManager : MonoBehaviour
             gameDataScript.player1selection = 1;
             player1text.SetActive(false);
             player2text.SetActive(true);
+            teams[0].interactable = false;
         }
 
         if (gameDataScript.player2selection == 0 && player2Turn)
         {
             gameDataScript.player2selection = 1;
+            teams[0].interactable = false;
         }
-
-        teams[0].interactable = false;
     }
 
     public void Knight()
@@ -90,14 +90,14 @@ public class TeamSelectionManager : MonoBehaviour
             gameDataScript.player1selection = 2;
             player1text.SetActive(false);
             player2text.SetActive(true);
+            teams[1].interactable = false;
         }
 
         if (gameDataScript.player2selection == 0 && player2Turn)
         {
             gameDataScript.player2selection = 2;
+            teams[1].interactable = false;
         }
-
-        teams[1].interactable = false;
     }
 
     public void Spartans()
@@ -107,14 +107,14 @@ public class TeamSelectionManager : MonoBehaviour
             gameDataScript.player1selection = 3;
             player1text.SetActive(false);
             player2text.SetActive(true);
+            teams[2].interactable = false;
         }
 
         if (gameDataScript.player2selection == 0 && player2Turn)
         {
             gameDataScript.player2selection = 3;
+            teams[2].interactable = false;
         }
-
-        teams[2].interactable = false;
     }
 
     //methods attached to buttons to write in sceneToLoad the name of the scene to load 
