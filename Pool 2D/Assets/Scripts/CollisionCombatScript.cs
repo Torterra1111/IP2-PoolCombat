@@ -41,7 +41,7 @@ public class CollisionCombatScript : MonoBehaviour
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
-    TeamSelectionManager SelectionMangerScript;
+    GameDataScript SelectionMangerScript;
     GameObject TeamSelection;
     //Events
     public delegate void PlaySound(int TakingDamage);
@@ -69,7 +69,7 @@ public class CollisionCombatScript : MonoBehaviour
         samuraiAbilityActive = false;
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
-        TeamSelection = GameObject.Find("ScriptStud");
+        TeamSelection = GameObject.Find("GameData");
         lineRenderer = GetComponent<LineRenderer>();
         if (gameController != null)
         {
@@ -77,12 +77,12 @@ public class CollisionCombatScript : MonoBehaviour
         }
         if (TeamSelection != null)
         {
-            SelectionMangerScript = TeamSelection.GetComponent<TeamSelectionManager>();
+            SelectionMangerScript = TeamSelection.GetComponent<GameDataScript>();
         }
         ballDead = false;
         isMoving = false;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
-        if (true)
+        if (SelectionMangerScript.SceneLoaded == "LevelGlacier")
         {
             rb.drag = 0.75f;
         }

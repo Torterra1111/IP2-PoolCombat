@@ -142,6 +142,7 @@ public class TeamSelectionManager : MonoBehaviour
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
             sceneToLoad = "LevelGlacier";
+            gameDataScript.SceneLoaded = "LevelGlacier";
             mapSelectionText.text = " selected";
             mapSelectionText.text = sceneToLoad + mapSelectionText.text;
             for (int i = 0; i < maps.Length; i++)
