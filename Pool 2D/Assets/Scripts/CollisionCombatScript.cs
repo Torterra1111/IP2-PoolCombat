@@ -41,6 +41,8 @@ public class CollisionCombatScript : MonoBehaviour
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
+    TeamSelectionManager SelectionMangerScript;
+    GameObject TeamSelection;
     //Events
     public delegate void PlaySound(int TakingDamage);
     public static event PlaySound EventPlaySound;
@@ -67,16 +69,27 @@ public class CollisionCombatScript : MonoBehaviour
         samuraiAbilityActive = false;
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
+        TeamSelection = GameObject.Find("ScriptStud");
         lineRenderer = GetComponent<LineRenderer>();
         if (gameController != null)
         {
             gameControllerScript = gameController.GetComponent<GameController>();
         }
-
+        if (TeamSelection != null)
+        {
+            SelectionMangerScript = TeamSelection.GetComponent<TeamSelectionManager>();
+        }
         ballDead = false;
         isMoving = false;
         hpAndDamageText.text = "HP: " + hp.ToString() + hpAndDamageText.text + "DMG: " + Attack.ToString();
-        
+        if (true)
+        {
+            rb.drag = 0.75f;
+        }
+        else
+        {
+            rb.drag = 0.95f;
+        }
     }
 
     void OnMouseDown()
