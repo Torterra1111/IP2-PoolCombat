@@ -117,6 +117,23 @@ public class TeamSelectionManager : MonoBehaviour
         }
     }
 
+    public void Lewd()
+    {
+        if (gameDataScript.player1selection == 0 && player1Turn)
+        {
+            gameDataScript.player1selection = 4;
+            player1text.SetActive(false);
+            player2text.SetActive(true);
+            teams[3].interactable = false;
+        }
+
+        if (gameDataScript.player2selection == 0 && player2Turn)
+        {
+            gameDataScript.player2selection = 4;
+            teams[3].interactable = false;
+        }
+    }
+
     //methods attached to buttons to write in sceneToLoad the name of the scene to load 
 
     public void LevelJungle()

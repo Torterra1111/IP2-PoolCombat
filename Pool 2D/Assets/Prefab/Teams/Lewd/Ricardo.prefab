@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8254556941179207465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.84, y: -2.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8792534880466793123}
@@ -251,10 +251,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_LinearDrag: 0.95
+  m_AngularDrag: 0.95
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 065e9e02b4b84e04daf4ec7554dbc87f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -309,6 +309,8 @@ MonoBehaviour:
   canvas: {fileID: 6120384591661956003}
   ring: {fileID: 4397830690368389906}
   hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
+    type: 3}
+  floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
     type: 3}
 --- !u!82 &1211132039778908907
 AudioSource:

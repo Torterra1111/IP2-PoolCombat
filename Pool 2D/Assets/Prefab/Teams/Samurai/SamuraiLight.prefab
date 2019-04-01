@@ -411,6 +411,8 @@ MonoBehaviour:
   ring: {fileID: 2349610395111876622}
   hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
     type: 3}
+  floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
+    type: 3}
 --- !u!82 &3113260641099294210
 AudioSource:
   m_ObjectHideFlags: 0

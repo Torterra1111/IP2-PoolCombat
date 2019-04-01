@@ -284,8 +284,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6772367956683073896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.83, y: -9.49, z: 0}
-  m_LocalScale: {x: 0.15887365, y: 0.14720465, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8961194123185701352}
   m_Father: {fileID: 0}
@@ -325,8 +325,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -956748433
-  m_SortingLayer: 5
+  m_SortingLayerID: -1124044653
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dfe8cb35c43aa7341a673b6c8a90559c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -352,9 +352,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 0.95
+  m_AngularDrag: 0.95
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -410,6 +410,8 @@ MonoBehaviour:
   canvas: {fileID: 3960849287153867890}
   ring: {fileID: 8066814417246332285}
   hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
+    type: 3}
+  floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
     type: 3}
 --- !u!82 &6347396179741431948
 AudioSource:

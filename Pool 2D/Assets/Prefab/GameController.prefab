@@ -73,7 +73,7 @@ MonoBehaviour:
   samurai:
   - {fileID: 3644711684735116337, guid: 5ab290d7b1ac58d498665468605bd8c6, type: 3}
   - {fileID: 2504733684464180744, guid: e8c89bdb6577b934ebce3a327bd0474e, type: 3}
-  - {fileID: 2504733684464180744, guid: 83fad26952ddb2e48aa27bd0077c0f44, type: 3}
+  - {fileID: 3113260641099294212, guid: 83fad26952ddb2e48aa27bd0077c0f44, type: 3}
   knights:
   - {fileID: 1632204619, guid: 29e4a24f7204ca1419994b6eea390a47, type: 3}
   - {fileID: 4841579412015212961, guid: bd10d8e756eceba4abbd46f29e305924, type: 3}
@@ -82,6 +82,10 @@ MonoBehaviour:
   - {fileID: 7495399091142004244, guid: 60ea709f79a65e3499ef0ca2fe09d0e6, type: 3}
   - {fileID: 1337781651416714484, guid: f565a797014e4d142bb143c870f9d020, type: 3}
   - {fileID: 95967554089228911, guid: 2ede9da249c8cdc459418ab35327b3d9, type: 3}
+  lewd:
+  - {fileID: 8254556941179207465, guid: 113fe4d609a639b468676e9d6c2810f1, type: 3}
+  - {fileID: 1658439491015335051, guid: c4521c0cf960ef54db90693c635e9a96, type: 3}
+  - {fileID: 6772367956683073896, guid: 9db10f0af11780643b555d8c2cd391fa, type: 3}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
