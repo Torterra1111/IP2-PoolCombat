@@ -41,8 +41,12 @@ public class CollisionCombatScript : MonoBehaviour
     //Game Controllers
     GameController gameControllerScript;
     GameObject gameController;
+
     GameDataScript SelectionMangerScript;
     GameObject TeamSelection;
+    
+    CameraController CameraContolScript;
+    GameObject CameraControl;
     //Events
     public delegate void PlaySound(int TakingDamage);
     public static event PlaySound EventPlaySound;
@@ -67,10 +71,11 @@ public class CollisionCombatScript : MonoBehaviour
         timeFromMovement = 0.0f;
         ballHasCollided = false;
         samuraiAbilityActive = false;
+        lineRenderer = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
         TeamSelection = GameObject.Find("GameData");
-        lineRenderer = GetComponent<LineRenderer>();
+        CameraControl = GameObject.Find("Main Camera");
         if (gameController != null)
         {
             gameControllerScript = gameController.GetComponent<GameController>();
@@ -78,6 +83,10 @@ public class CollisionCombatScript : MonoBehaviour
         if (TeamSelection != null)
         {
             SelectionMangerScript = TeamSelection.GetComponent<GameDataScript>();
+        }
+        if (CameraControl != null)
+        {
+            CameraContolScript = CameraControl.GetComponent<CameraController>();
         }
         ballDead = false;
         isMoving = false;
@@ -238,6 +247,7 @@ public class CollisionCombatScript : MonoBehaviour
             if (ballHitScript != null)
             {
                 Instantiate(hitEffect, contactPoint, Quaternion.identity);
+                CameraContolScript.shakeDuration = 0.001f;
                 ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
@@ -294,6 +304,7 @@ public class CollisionCombatScript : MonoBehaviour
             }
         }
     }
+
 }
 
 

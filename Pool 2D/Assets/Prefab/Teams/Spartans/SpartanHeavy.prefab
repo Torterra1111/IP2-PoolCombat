@@ -210,8 +210,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7495399091142004244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25036213, y: 0.226713, z: 1}
+  m_LocalPosition: {x: 0.604, y: 0.237, z: 0}
+  m_LocalScale: {x: 1.201, y: 1.057, z: 1}
   m_Children:
   - {fileID: 8984703853304459387}
   m_Father: {fileID: 0}
@@ -480,7 +480,7 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.26044464
+        time: 0.1409378
         value: 0.49456215
         inSlope: 0
         outSlope: 0
@@ -522,7 +522,7 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
