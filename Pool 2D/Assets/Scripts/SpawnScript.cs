@@ -8,6 +8,7 @@ public class SpawnScript : MonoBehaviour
     public GameObject[] samurai;
     public GameObject[] knights;
     public GameObject[] spartans;
+    public GameObject[] lewd;
 
     //a 6 elements array that retains the positions where the balls need to spawn
     public Transform[] spawnPoints;
@@ -136,6 +137,43 @@ public class SpawnScript : MonoBehaviour
             {
                 GameObject spartansLight = Instantiate(spartans[2], spawnPoints[5].position, Quaternion.identity);
                 spartansLight.tag = "Player2";
+            }
+        }
+
+        //lewd team spawn
+        if (team == 4)
+        {
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject ricardo = Instantiate(lewd[0], spawnPoints[0].position, Quaternion.identity);
+                ricardo.tag = "Player1";
+            }
+            else
+            {
+                GameObject ricardo = Instantiate(lewd[0], spawnPoints[3].position, Quaternion.identity);
+                ricardo.tag = "Player2";
+            }
+
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject borat = Instantiate(lewd[1], spawnPoints[1].position, Quaternion.identity);
+                borat.tag = "Player1";
+            }
+            else
+            {
+                GameObject borat = Instantiate(lewd[1], spawnPoints[4].position, Quaternion.identity);
+                borat.tag = "Player2";
+            }
+
+            if (gameController.player1BallsHasSpawned == false)
+            {
+                GameObject hitormiss = Instantiate(lewd[2], spawnPoints[2].position, Quaternion.identity);
+                hitormiss.tag = "Player1";
+            }
+            else
+            {
+                GameObject hitormiss = Instantiate(lewd[2], spawnPoints[5].position, Quaternion.identity);
+                hitormiss.tag = "Player2";
             }
         }
     }

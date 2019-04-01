@@ -65,6 +65,7 @@ public class CollisionCombatScript : MonoBehaviour
     Vector3 test;
 
     public GameObject hitEffect;
+    public GameObject floatingDamagePrefab;
 
     void Start()
     {
@@ -247,6 +248,9 @@ public class CollisionCombatScript : MonoBehaviour
             if (ballHitScript != null)
             {
                 Instantiate(hitEffect, contactPoint, Quaternion.identity);
+                GameObject floatingDamageObj = Instantiate(floatingDamagePrefab, transform.position, Quaternion.identity);
+                floatingDamageObj.GetComponent<FloatingDamageController>().SetText((Attack - ballHitScript.Armour).ToString());
+
                 CameraContolScript.shakeDuration = 0.001f;
                 ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
