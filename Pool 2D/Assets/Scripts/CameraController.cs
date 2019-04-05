@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
 
     public float shakeDuration = 0f;
-    public float ShakeDecrease = 0.1f;
-    public float shakeAmount = 0.001f;
+    public float ShakeDecrease = 0.7f;
+    public float shakeAmount = 1.0f;
     // Start is called before the first frame update
     void Start()
     {

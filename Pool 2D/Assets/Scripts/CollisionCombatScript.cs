@@ -251,7 +251,7 @@ public class CollisionCombatScript : MonoBehaviour
                 GameObject floatingDamageObj = Instantiate(floatingDamagePrefab, transform.position, Quaternion.identity);
                 floatingDamageObj.GetComponent<FloatingDamageController>().SetText((Attack - ballHitScript.Armour).ToString());
 
-                CameraContolScript.shakeDuration = 0.001f;
+                CameraContolScript.shakeDuration = 0.1f;
                 ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
