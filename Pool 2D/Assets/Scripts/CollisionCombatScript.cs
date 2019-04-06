@@ -178,6 +178,8 @@ public class CollisionCombatScript : MonoBehaviour
 
         if (isMoving)
         {
+            //Make it move where its moving
+            //gameObject.transform.rotation = localDirection;
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
             {
@@ -186,6 +188,7 @@ public class CollisionCombatScript : MonoBehaviour
                 timeFromMovement = 0.0f;
                 gameControllerScript.playerActions++;
                 Debug.Log("ball stopped and playerActions++");
+                gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             }
         }
 
