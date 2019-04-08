@@ -42,7 +42,6 @@ public class MovingSpikeScript : MonoBehaviour
             transform.position = Vector3.Lerp(Waypoint, Waypoint2, waypointsDistanceFraction);
             if (waypointsDistanceFraction < 1 && waypointsDistanceFraction > 0.98f)
             {
-                Debug.Log("inizio ritorno");
                 travel = false;
                 travelBack = true;
                 startTime = Time.time;
@@ -55,7 +54,6 @@ public class MovingSpikeScript : MonoBehaviour
             transform.position = Vector3.Lerp(Waypoint2, Waypoint, waypointsDistanceFraction);
             if (waypointsDistanceFraction < 1 && waypointsDistanceFraction > 0.98f)
             {
-                Debug.Log("inizio andata");
                 travel = true;
                 travelBack = false;
                 startTime = Time.time;
@@ -63,42 +61,4 @@ public class MovingSpikeScript : MonoBehaviour
             }
         }
     }
-
-
-    /*IEnumerator Travel()
-    {
-        while(travel)
-        {
-            transform.position = Vector3.Lerp(Waypoint, Waypoint2, 10.0f);
-            if (transform.position == Waypoint2)
-            {
-                travel = false;
-                travelBack = true;
-            }
-        }
-
-        while(travelBack)
-        {
-            transform.position = Vector3.Lerp(Waypoint2, Waypoint, 10.0f);
-            if (transform.position == Waypoint)
-            {
-                travel = true;
-                travelBack = false;
-            }
-        }
-
-        yield return new WaitForSeconds(1.0f);
-
-        /*
-        while(travelBack)
-        transform.position = Vector3.Lerp(Waypoint2, Waypoint, 10.0f);
-        yield return new WaitForSeconds(1.0f);*/
-  
-
-
-    /*void Travel2()
-    {
-        transform.position = Vector3.Lerp(Waypoint2, Waypoint, 2.0f);
-        new WaitForSeconds(5.0f);
-    }*/
 }

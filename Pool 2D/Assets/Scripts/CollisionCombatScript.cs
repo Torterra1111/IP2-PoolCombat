@@ -76,7 +76,8 @@ public class CollisionCombatScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController");
         TeamSelection = GameObject.Find("GameData");
-        CameraControl = GameObject.Find("Main Camera");
+        CameraControl = GameObject.FindGameObjectWithTag("MainCamera");
+        CameraContolScript = CameraControl.GetComponent<CameraController>();
         if (gameController != null)
         {
             gameControllerScript = gameController.GetComponent<GameController>();
