@@ -7946,7 +7946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 0
   ShakeDecrease: 0.7
-  shakeAmount: 10
+  shakeAmount: 0.5
 --- !u!4 &2095843426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8951179092370945125, guid: 63c8f5cba9b9a774eb1052afd8025394,
@@ -8657,15 +8657,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 605
-      objectReference: {fileID: 0}
     - target: {fileID: 3600436183569573696, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 605
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3631825dabad440938ce60b7cd0ce8, type: 3}

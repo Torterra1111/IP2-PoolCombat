@@ -258,8 +258,10 @@ public class CollisionCombatScript : MonoBehaviour
                 ballHitScript.hp = ballHitScript.hp - (Attack - ballHitScript.Armour);
                 ballHitScript.hpAndDamageText.text = " / ";
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
-                GetComponent<AudioSource>().PlayOneShot(Injure); //Moved this here untill a more suficent way of fiixng damage sound is found as sound would play always.
+                GetComponent<AudioSource>().PlayOneShot(Injure); 
                 IsAttack = false;
+                
+                //ballHitScript.gameObject.GetComponent<SpriteRenderer>().material.color = Color.Lerp(Color.red, new Color(1, 1, 1, 1), Mathf.PingPong(Time.time, 1));
             }
         }
 
@@ -269,10 +271,10 @@ public class CollisionCombatScript : MonoBehaviour
     //we can use the coroutine to do death related stuff; particles, sound etc.
     IEnumerator DisableBall()
     {
-            
+            float t = 1;
             GetComponent<AudioSource>().PlayOneShot(Death);
             rb.velocity = new Vector3(0, 0, 0);
-            this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0.5f);
+            this.gameObject.GetComponent<SpriteRenderer>().material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), Mathf.PingPong(Time.time, 1));
             yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
             this.gameObject.SetActive(false);
     }
@@ -314,18 +316,11 @@ public class CollisionCombatScript : MonoBehaviour
 
 }
 
-
 /*
-    void PlaySound(int TakingDamage)
-    {
-        if (TakingDamage == 1)
-        {
-            GetComponent<AudioSource>().PlayOneShot(Injure);
-        }
-        else if (TakingDamage == 2)
-        {
-            GetComponent<AudioSource>().PlayOneShot(Death);
-        }
-    }
-
-    */
+             while (t > 0)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, (t));
+                t -= 1.0000000001f * Time.deltaTime;
+            Debug.Log(t);
+            } 
+*/
