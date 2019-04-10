@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 6918577461286187037}
   - component: {fileID: 445740454133828758}
   - component: {fileID: 4729341365539819091}
+  - component: {fileID: 2937500875181331579}
+  - component: {fileID: 6350627915875486346}
   m_Layer: 9
   m_Name: SamuraiHeavy
   m_TagString: Untagged
@@ -451,6 +453,39 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &2937500875181331579
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644711684735116337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff03c02a7ba331c48b35b3eacbec34f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6350627915875486346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644711684735116337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 2937500875181331579}
+  rb: {fileID: 0}
 --- !u!1 &4991957114092166929
 GameObject:
   m_ObjectHideFlags: 0
