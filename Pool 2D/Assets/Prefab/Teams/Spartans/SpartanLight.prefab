@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 95967554089228908}
   - component: {fileID: 95967554089228909}
   - component: {fileID: 95967554089228910}
+  - component: {fileID: 7054387412738864803}
+  - component: {fileID: 6050751572911879260}
   m_Layer: 9
   m_Name: SpartanLight
   m_TagString: Untagged
@@ -350,6 +352,39 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &7054387412738864803
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95967554089228911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 689114932cecebb418f1343cea0d36c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6050751572911879260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95967554089228911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 7054387412738864803}
+  rb: {fileID: 0}
 --- !u!1 &4127734667170483785
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,9 +576,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.4, y: -0.4}
+  m_AnchoredPosition: {x: -0.70593023, y: -0.39999807}
   m_SizeDelta: {x: 1369.3, y: 1213}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.4833781, y: 0.5}
 --- !u!223 &8803650156997572213
 Canvas:
   m_ObjectHideFlags: 0

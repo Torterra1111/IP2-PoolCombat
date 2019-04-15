@@ -173,8 +173,8 @@ public class CollisionCombatScript : MonoBehaviour
         }
 
         //lock gameobject rotation
-        gameObject.transform.rotation = Quaternion.identity;
-
+        transform.rotation = Quaternion.identity;
+        
         speed = rb.velocity.magnitude;
 
         if (isMoving)
