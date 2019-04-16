@@ -47,9 +47,6 @@ public class CollisionCombatScript : MonoBehaviour
     
     CameraController CameraContolScript;
     GameObject CameraControl;
-    //Events
-    public delegate void PlaySound(int TakingDamage);
-    public static event PlaySound EventPlaySound;
     //Sound Control
     public AudioClip Injure;
     public AudioClip Death;
@@ -61,6 +58,12 @@ public class CollisionCombatScript : MonoBehaviour
     //public GameObject CharacterRing;
     LineRenderer lineRenderer;
     LineRenderer Liners;
+    //ColourControllers
+    public float ColourDuration = 0f;
+    public float ColourDecrease = 155f;
+
+    public float RedDuration = 300f;
+    public float RedDecrease = 130f;
 
     Vector3 test;
 
@@ -179,7 +182,7 @@ public class CollisionCombatScript : MonoBehaviour
 
         if (isMoving)
         {
-            //Make it move where its moving
+            //Make it look where its moving
             //gameObject.transform.rotation = localDirection;
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
@@ -224,7 +227,7 @@ public class CollisionCombatScript : MonoBehaviour
 
         if (hp <= 0 && !ballDead)
         {
-            
+            ColourDuration = 255f;
             if (gameObject.tag == "Player1")
             {
                 gameControllerScript.player1DeadBalls++;
@@ -235,7 +238,39 @@ public class CollisionCombatScript : MonoBehaviour
             }
             ballDead = true;
             StartCoroutine(DisableBall());
-        }       
+        }
+
+        //Thanos Snap
+        if (ColourDuration > 0f)
+        {
+            Debug.Log(ColourDuration);
+            byte L = System.Convert.ToByte(ColourDuration);
+            gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, 255, 255, L);
+            ColourDuration -= Time.deltaTime * ColourDecrease; //Decreases the time of shaking
+
+        }
+        else if (ballDead) //If the shake duration is less than 0 (it has ended)
+        {
+            ColourDuration = 0f; //Makes sure it has ended)
+            gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, 255, 255, 0);
+        }
+        
+        //Red oof
+        if (RedDuration < 254)
+        {
+            Debug.Log(RedDuration);
+            byte L = System.Convert.ToByte(RedDuration);
+            gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, L, L,255);
+            RedDuration += Time.deltaTime * RedDecrease; //Decreases the time of shaking
+        }
+        else if (!ballDead)
+        {
+            RedDuration = 300f; //Makes sure it has ended)
+            gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, 255, 255, 255);
+        }
+        
+        
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -261,6 +296,7 @@ public class CollisionCombatScript : MonoBehaviour
                 ballHitScript.hpAndDamageText.text = "HP: " + ballHitScript.hp.ToString() + ballHitScript.hpAndDamageText.text + "DMG: " + ballHitScript.Attack.ToString();
                 GetComponent<AudioSource>().PlayOneShot(Injure); 
                 IsAttack = false;
+                if(ballHitScript.hp > 0)ballHitScript.RedDuration = 0f;
                 
                 //ballHitScript.gameObject.GetComponent<SpriteRenderer>().material.color = Color.Lerp(Color.red, new Color(1, 1, 1, 1), Mathf.PingPong(Time.time, 1));
             }
@@ -272,14 +308,11 @@ public class CollisionCombatScript : MonoBehaviour
     //we can use the coroutine to do death related stuff; particles, sound etc.
     IEnumerator DisableBall()
     {
-            float t = 1;
-            GetComponent<AudioSource>().PlayOneShot(Death);
-            rb.velocity = new Vector3(0, 0, 0);
-            this.gameObject.GetComponent<SpriteRenderer>().material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), Mathf.PingPong(Time.time, 1));
-            yield return new WaitForSeconds(1.6f); //the time in seconds must be equal to the clip lenght
-            this.gameObject.SetActive(false);
+        GetComponent<AudioSource>().PlayOneShot(Death);
+        rb.velocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(2f); //the time in seconds must be equal to the clip lenght
+        this.gameObject.SetActive(false);
     }
-
     void SamuraiDamageBoost()
     {      
         Attack++;
