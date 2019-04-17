@@ -6,6 +6,7 @@ public class AnimationController : MonoBehaviour
 {
     public Animator Animator;
     public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {

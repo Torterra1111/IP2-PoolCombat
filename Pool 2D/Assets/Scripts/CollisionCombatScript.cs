@@ -125,7 +125,7 @@ public class CollisionCombatScript : MonoBehaviour
             {
                 //Getting mouse position
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+    
                 //Direction is a new point to go to.
                 direction = (Vector2)(transform.position - mousePosition);
                 test = (Vector3)(transform.position - mousePosition);
@@ -164,7 +164,6 @@ public class CollisionCombatScript : MonoBehaviour
                     rb.AddForce(test * force);
                     IsActive = false;
                     isMoving = true;
-
                     DisableOtherBalls();
 
                     //deactivate ring and reset linerenderer vertices 
@@ -177,7 +176,8 @@ public class CollisionCombatScript : MonoBehaviour
 
         //lock gameobject rotation
         transform.rotation = Quaternion.identity;
-        
+
+
         speed = rb.velocity.magnitude;
 
         if (isMoving)
@@ -199,6 +199,7 @@ public class CollisionCombatScript : MonoBehaviour
         if (speed < 0.2 && ballHasCollided)
         {
             rb.velocity = new Vector3(0, 0, 0);
+            gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             ballHasCollided = false;
         }
 

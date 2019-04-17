@@ -308,6 +308,10 @@ MonoBehaviour:
   hpAndDamageText: {fileID: 4275940767288550033}
   canvas: {fileID: 6120384591661956003}
   ring: {fileID: 4397830690368389906}
+  ColourDuration: 0
+  ColourDecrease: 155
+  RedDuration: 300
+  RedDecrease: 130
   hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
     type: 3}
   floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
@@ -416,7 +420,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8254556941179207465}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
   m_MotionVectors: 0
@@ -425,7 +429,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ede483fb4a10de24e844e62d287bca1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -447,7 +451,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -455,8 +459,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.24390411
-        value: 0.49189186
+        time: 0.25740358
+        value: 0.4891298
         inSlope: 0
         outSlope: 0
         tangentMode: 0
