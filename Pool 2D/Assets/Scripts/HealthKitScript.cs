@@ -6,7 +6,6 @@ public class HealthKitScript : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();     
