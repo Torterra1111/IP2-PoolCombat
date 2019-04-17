@@ -127,8 +127,7 @@ public class CollisionCombatScript : MonoBehaviour
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 //Direction is a new point to go to.
-                direction = (Vector2)(transform.position - mousePosition);
-                test = (Vector3)(transform.position - mousePosition);
+                direction = (Vector3)(transform.position - mousePosition);
 
                 //raycast to draw the trajectory still in progress, math is simple but im dumb
                 //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction); // layer mask 11 "Walls"
@@ -161,7 +160,7 @@ public class CollisionCombatScript : MonoBehaviour
                 if (Input.GetMouseButtonUp(0))
                 {
                     //Accual movment
-                    rb.AddForce(test * force);
+                    rb.AddForce(direction * force);
                     IsActive = false;
                     isMoving = true;
 
@@ -176,14 +175,14 @@ public class CollisionCombatScript : MonoBehaviour
         }
 
         //lock gameobject rotation
-        transform.rotation = Quaternion.identity;
-        
-        speed = rb.velocity.magnitude;
-
+        canvas.transform.rotation = Quaternion.identity;
+        if(!isMoving)transform.rotation = Quaternion.identity;
         if (isMoving)
         {
             //Make it look where its moving
-            //gameObject.transform.rotation = localDirection;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0,/*CHANGE THIS NUMBER HERE. -> */0));
+            //REMEBER THE ROLL ANIMATION IS DOWNARDS. TO MAKE IT TURN RIGHT, ROTATATE IT 270 DEGREES. ITS CLOCKWISE
+            speed = rb.velocity.magnitude;
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
             {
@@ -243,7 +242,6 @@ public class CollisionCombatScript : MonoBehaviour
         //Thanos Snap
         if (ColourDuration > 0f)
         {
-            Debug.Log(ColourDuration);
             byte L = System.Convert.ToByte(ColourDuration);
             gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, 255, 255, L);
             ColourDuration -= Time.deltaTime * ColourDecrease; //Decreases the time of shaking
@@ -258,7 +256,6 @@ public class CollisionCombatScript : MonoBehaviour
         //Red oof
         if (RedDuration < 254)
         {
-            Debug.Log(RedDuration);
             byte L = System.Convert.ToByte(RedDuration);
             gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, L, L,255);
             RedDuration += Time.deltaTime * RedDecrease; //Decreases the time of shaking
