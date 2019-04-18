@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelJapanese.unity
     guid: d9c350501ef21cc469373741147fd210
+  - enabled: 1
+    path: Assets/Scenes/LevelBeach.unity
+    guid: 3948d80191dc1e646bbceea528a4be9e
   m_configObjects: {}

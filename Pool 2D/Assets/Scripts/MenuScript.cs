@@ -46,6 +46,11 @@ public class MenuScript : MonoBehaviour
         gameObject.GetComponent<AudioSource>().PlayOneShot(ButtonClick);
     }
 
+    public void HelpButton()
+    {
+
+    }
+
     public void SelectMapButton()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)

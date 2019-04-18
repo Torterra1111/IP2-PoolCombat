@@ -100,6 +100,10 @@ public class CollisionCombatScript : MonoBehaviour
         {
             rb.drag = 0.75f;
         }
+        else if(SelectionMangerScript.SceneLoaded == "LevelBeach")
+        {
+            rb.drag = 1.0f;
+        }
         else
         {
             rb.drag = 0.95f;

@@ -209,6 +209,24 @@ public class TeamSelectionManager : MonoBehaviour
             maps[0].interactable = false;
         }
     }
+    public void LevelBeach()
+    {
+        if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
+        {
+            sceneToLoad = "LevelBeach";
+            gameDataScript.SceneLoaded = "LevelBeach";
+            mapSelectionText.text = " selected";
+            mapSelectionText.text = sceneToLoad + mapSelectionText.text;
+            for (int i = 0; i < maps.Length; i++)
+            {
+                if (maps[i].interactable == false)
+                {
+                    maps[i].interactable = true;
+                }
+            }
+            maps[4].interactable = false;
+        }
+    }
     public void LoadSelectedMap()
     {
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0 && sceneToLoad != "")
