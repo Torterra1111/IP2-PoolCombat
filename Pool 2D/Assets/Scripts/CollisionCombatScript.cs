@@ -137,26 +137,9 @@ public class CollisionCombatScript : MonoBehaviour
                 direction = (Vector2)(transform.position - mousePosition);
                 test = (Vector3)(transform.position - mousePosition);
 
-                //raycast to draw the trajectory still in progress, math is simple but im dumb
-                //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction); // layer mask 11 "Walls"
-
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, mousePosition);
                 
-                /*
-                if (hit.collider != null)
-                {
-                    lineRenderer.SetPosition(1, hit.point);
-                }
-                else
-                {
-                    lineRenderer.SetPosition(1, mousePos);
-                }*/
-
-                //Where the ball should go is = to the ball position
-                // direction = (Vector2)(mousePosition - transform.position) THIS IS NORMAL>>>>>>> 
-
-
                 force = Vector3.Distance(transform.position, mousePosition);
                 force = force * 6;
 

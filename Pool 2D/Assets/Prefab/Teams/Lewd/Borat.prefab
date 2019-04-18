@@ -157,7 +157,7 @@ MonoBehaviour:
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 4908551974070609419}
   canvas: {fileID: 7792602234218922924}
-  ring: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b, type: 3}
+  ring: {fileID: 6769239201086446438}
   ColourDuration: 0
   ColourDecrease: 155
   RedDuration: 300
@@ -680,6 +680,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d027e50f5b1bc64ebd727b97df04d7b, type: 3}
+--- !u!1 &6769239201086446438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6223643775038692735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4343408761704754595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7644913468834558172, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
