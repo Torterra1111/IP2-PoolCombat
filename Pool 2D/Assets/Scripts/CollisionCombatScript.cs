@@ -33,10 +33,13 @@ public class CollisionCombatScript : MonoBehaviour
     public bool interactable = false;
 
     //abilities activators
-    public bool samuraiAbility = false;
-    public bool spartansAbility = false;
+    public bool hasSamuraiAbility = false;
+    public bool hasSpartansAbility = false;
+    public bool hasLewdAbility = false;
     bool samuraiAbilityActive = false;
     bool spartansAbilityActive = false;
+
+    public GameObject lewdHealthDrop;
 
     //Game Controllers
     GameController gameControllerScript;
@@ -207,13 +210,13 @@ public class CollisionCombatScript : MonoBehaviour
             ballHasCollided = false;
         }
 
-        if (samuraiAbility && !samuraiAbilityActive && hp < 3)
+        if (hasSamuraiAbility && !samuraiAbilityActive && hp < 3)
         {
             samuraiAbilityActive = true;
             SamuraiDamageBoost();
         }
 
-        if (spartansAbility && !spartansAbilityActive)
+        if (hasSpartansAbility && !spartansAbilityActive)
         {
             if (gameObject.tag == "Player1" && gameControllerScript.player1DeadBalls >= 2)
             {
@@ -316,6 +319,11 @@ public class CollisionCombatScript : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(Death);
         rb.velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(2f); //the time in seconds must be equal to the clip lenght
+        
+        if(hasLewdAbility) 
+        {
+            Instantiate(lewdHealthDrop, transform.position, Quaternion.identity);
+        }
         this.gameObject.SetActive(false);
     }
     void SamuraiDamageBoost()
