@@ -165,16 +165,15 @@ public class CollisionCombatScript : MonoBehaviour
         }
 
         //lock gameobject rotation
-        transform.rotation = Quaternion.identity;
-
-
+        canvas.transform.rotation = Quaternion.identity;
         speed = rb.velocity.magnitude;
         test = rb.velocity.normalized;
-
+        if (!isMoving) transform.rotation = Quaternion.identity;
         if (isMoving)
         {
             //Make it look where its moving
-            transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, 90), Vector3.up);
+            float angle = Mathf.Atan2(test.y, test.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle+90, Vector3.forward);
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
             {
