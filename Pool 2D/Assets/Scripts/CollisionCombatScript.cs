@@ -169,11 +169,12 @@ public class CollisionCombatScript : MonoBehaviour
 
 
         speed = rb.velocity.magnitude;
+        test = rb.velocity.normalized;
 
         if (isMoving)
         {
             //Make it look where its moving
-            //gameObject.transform.rotation = localDirection;
+            transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, 90), Vector3.up);
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
             {
