@@ -22,8 +22,6 @@ public class TeamSelectionManager : MonoBehaviour
     public Button[] maps;
     //Button selection
     public Button[] teams;
-    //Map Music (Could Be placed in an array)
-    public AudioClip Menu;
     //fade animator reference
     public Animator fadeAnimator;
 
@@ -37,7 +35,6 @@ public class TeamSelectionManager : MonoBehaviour
             gameDataScript = gameData.GetComponent<GameDataScript>();
         }
      
-        GetComponent<AudioSource>().PlayOneShot(Menu);
     }
 
     void Update()
