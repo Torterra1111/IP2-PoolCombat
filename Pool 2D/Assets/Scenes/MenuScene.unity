@@ -4999,7 +4999,6 @@ MonoBehaviour:
   - {fileID: 1096299845}
   - {fileID: 1129653618}
   - {fileID: 655130497}
-  Menu: {fileID: 8300000, guid: cea2d1c7ee8ffdb41bd3cc0e60a6461d, type: 3}
   fadeAnimator: {fileID: 1328543652}
 --- !u!82 &1559532449
 AudioSource:
@@ -5011,11 +5010,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cea2d1c7ee8ffdb41bd3cc0e60a6461d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
