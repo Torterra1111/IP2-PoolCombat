@@ -69,6 +69,7 @@ public class CollisionCombatScript : MonoBehaviour
     public float RedDecrease = 130f;
 
     Vector3 test;
+    Vector3 Movement;
 
     public GameObject hitEffect;
     public GameObject floatingDamagePrefab;
@@ -126,6 +127,9 @@ public class CollisionCombatScript : MonoBehaviour
 
     void Update()
     {
+        //lock gameobject rotation
+        canvas.transform.rotation = Quaternion.identity;
+
         if (interactable)
         {
             if (IsActive == true)
@@ -164,16 +168,17 @@ public class CollisionCombatScript : MonoBehaviour
             }
         }
 
-        //lock gameobject rotation
-        canvas.transform.rotation = Quaternion.identity;
+
         speed = rb.velocity.magnitude;
-        test = rb.velocity.normalized;
-        if (!isMoving) transform.rotation = Quaternion.identity;
+        if (speed > 0.2)
+        {
+            Movement = rb.velocity.normalized;
+            float angle = Mathf.Atan2(Movement.y, Movement.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+        }
+
         if (isMoving)
         {
-            //Make it look where its moving
-            float angle = Mathf.Atan2(test.y, test.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle+90, Vector3.forward);
             timeFromMovement += Time.deltaTime;
             if (speed < 0.2 && timeFromMovement > 1.5f)
             {
@@ -234,7 +239,6 @@ public class CollisionCombatScript : MonoBehaviour
         //Thanos Snap
         if (ColourDuration > 0f)
         {
-            Debug.Log(ColourDuration);
             byte L = System.Convert.ToByte(ColourDuration);
             gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, 255, 255, L);
             ColourDuration -= Time.deltaTime * ColourDecrease; //Decreases the time of shaking
@@ -249,7 +253,6 @@ public class CollisionCombatScript : MonoBehaviour
         //Red oof
         if (RedDuration < 254)
         {
-            Debug.Log(RedDuration);
             byte L = System.Convert.ToByte(RedDuration);
             gameObject.GetComponent<SpriteRenderer>().material.color = new Color32(255, L, L,255);
             RedDuration += Time.deltaTime * RedDecrease; //Decreases the time of shaking

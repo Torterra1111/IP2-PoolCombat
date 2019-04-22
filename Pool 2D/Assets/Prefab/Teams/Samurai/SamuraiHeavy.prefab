@@ -251,8 +251,10 @@ MonoBehaviour:
   Armour: 0
   IsActive: 0
   interactable: 0
-  samuraiAbility: 1
-  spartansAbility: 0
+  hasSamuraiAbility: 0
+  hasSpartansAbility: 0
+  hasLewdAbility: 0
+  lewdHealthDrop: {fileID: 0}
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 1693028525549016010}
@@ -488,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
+  Animator: {fileID: 3967074453597868757}
   rb: {fileID: 0}
 --- !u!1 &4991957114092166929
 GameObject:
