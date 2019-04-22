@@ -1264,7 +1264,7 @@ PrefabInstance:
     - target: {fileID: 7572871238596880060, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.1000061
+      value: 1.1000366
       objectReference: {fileID: 0}
     - target: {fileID: 7572871238596880060, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
@@ -1492,16 +1492,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseBackToMenuPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 7325139965394096958, guid: 0f3631825dabad440938ce60b7cd0ce8,
+    - target: {fileID: 7301742107498972335, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-    - target: {fileID: 7325139965394096958, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMenu
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3631825dabad440938ce60b7cd0ce8, type: 3}
@@ -4438,6 +4432,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player1TurnText
+      value: 
+      objectReference: {fileID: 271749752}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2TurnText
+      value: 
+      objectReference: {fileID: 271749751}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 271749753}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 271749754}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 271749750}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUI
+      value: 
+      objectReference: {fileID: 271749754}
     - target: {fileID: 2680030757040527693, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4528,31 +4552,6 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 2028023768}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player1TurnText
-      value: 
-      objectReference: {fileID: 271749752}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2TurnText
-      value: 
-      objectReference: {fileID: 271749751}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: winText
-      value: 
-      objectReference: {fileID: 271749753}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuUIElements
-      value: 
-      objectReference: {fileID: 271749754}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuMessage
-      value: 
-      objectReference: {fileID: 271749750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &2028023768 stripped

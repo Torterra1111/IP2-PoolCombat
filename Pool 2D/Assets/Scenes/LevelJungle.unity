@@ -2533,6 +2533,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player1TurnText
+      value: 
+      objectReference: {fileID: 19805293}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2TurnText
+      value: 
+      objectReference: {fileID: 19805292}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 19805294}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 19805295}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 19805291}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUI
+      value: 
+      objectReference: {fileID: 19805295}
     - target: {fileID: 2680030757040527693, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2623,31 +2653,6 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1816352876}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player1TurnText
-      value: 
-      objectReference: {fileID: 19805293}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2TurnText
-      value: 
-      objectReference: {fileID: 19805292}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: winText
-      value: 
-      objectReference: {fileID: 19805294}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuUIElements
-      value: 
-      objectReference: {fileID: 19805295}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuMessage
-      value: 
-      objectReference: {fileID: 19805291}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &1882867490 stripped

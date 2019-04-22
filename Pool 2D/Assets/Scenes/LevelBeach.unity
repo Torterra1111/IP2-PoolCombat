@@ -1120,11 +1120,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.64500004
       objectReference: {fileID: 0}
-    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 605
-      objectReference: {fileID: 0}
     - target: {fileID: 8955013567028766484, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_IsActive
@@ -1200,11 +1195,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -61.7
       objectReference: {fileID: 0}
-    - target: {fileID: 6688994232376920464, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2112236862103572248, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -1232,6 +1222,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
+    - target: {fileID: 7301742107498972335, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301742107498972335, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_Name
+      value: BackToMenuElements
+      objectReference: {fileID: 0}
+    - target: {fileID: 157336586057769018, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688994232376920464, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 605
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3631825dabad440938ce60b7cd0ce8, type: 3}
 --- !u!224 &237418015 stripped
@@ -3032,6 +3047,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player1TurnText
+      value: 
+      objectReference: {fileID: 237418017}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2TurnText
+      value: 
+      objectReference: {fileID: 237418016}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 237418018}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 1846574303}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 1047449082}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2DeadBalls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUI
+      value: 
+      objectReference: {fileID: 1846574303}
     - target: {fileID: 2680030757040527693, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3122,41 +3172,6 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1899892452}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2BallsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player1TurnText
-      value: 
-      objectReference: {fileID: 237418017}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2TurnText
-      value: 
-      objectReference: {fileID: 237418016}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: matchOver
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: winText
-      value: 
-      objectReference: {fileID: 237418018}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuUIElements
-      value: 
-      objectReference: {fileID: 1846574303}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuMessage
-      value: 
-      objectReference: {fileID: 1047449082}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &800282183 stripped

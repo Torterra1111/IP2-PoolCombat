@@ -6031,6 +6031,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2BallsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player1TurnText
+      value: 
+      objectReference: {fileID: 7467018127890976918}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: player2TurnText
+      value: 
+      objectReference: {fileID: 7467018127890976917}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: matchOver
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 7467018127890976919}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 7467018127890976921}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 7467018127890976920}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUI
+      value: 
+      objectReference: {fileID: 7467018127890976921}
     - target: {fileID: 2680030757040527693, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6121,41 +6161,6 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 361555987}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2BallsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player1TurnText
-      value: 
-      objectReference: {fileID: 7467018127890976918}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: player2TurnText
-      value: 
-      objectReference: {fileID: 7467018127890976917}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: matchOver
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: winText
-      value: 
-      objectReference: {fileID: 7467018127890976919}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuUIElements
-      value: 
-      objectReference: {fileID: 7467018127890976921}
-    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
-        type: 3}
-      propertyPath: backToMenuMessage
-      value: 
-      objectReference: {fileID: 7467018127890976920}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &1663384780 stripped
@@ -8384,20 +8389,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.9547188
       objectReference: {fileID: 0}
-    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 605
-      objectReference: {fileID: 0}
     - target: {fileID: 8955013567028766484, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688994232376920464, guid: 0f3631825dabad440938ce60b7cd0ce8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2112236862103572248, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
@@ -8426,6 +8421,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
         type: 3}
+    - target: {fileID: 6688994232376920464, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467018127378404585, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 605
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3631825dabad440938ce60b7cd0ce8, type: 3}
 --- !u!114 &7467018127890976917 stripped

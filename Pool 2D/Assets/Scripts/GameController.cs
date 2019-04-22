@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     public bool matchOver;
     public Text winText;
 
-    public GameObject backToMenuUIElements;
+    public GameObject backToMenuUI;
     float timeToMessageDisappear;
     bool messageShown;
     public GameObject backToMenuMessage;
@@ -81,9 +81,14 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            backToMenuUIElements.SetActive(true);
+            backToMenuUI.SetActive(true);
+        }
+
+        if(Input.GetKeyUp(KeyCode.RightControl) || Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            backToMenuUI.SetActive(false);
         }
 
         switch (currentState)
@@ -260,6 +265,7 @@ public class GameController : MonoBehaviour
 
     public void CloseBackToMenuPanel()
     {
-        backToMenuUIElements.SetActive(false);
+        backToMenuUI.SetActive(false);
     }
 }
+   
