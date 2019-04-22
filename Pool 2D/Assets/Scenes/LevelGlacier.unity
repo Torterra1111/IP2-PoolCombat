@@ -1483,6 +1483,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3631825dabad440938ce60b7cd0ce8, type: 3}
+--- !u!1 &271749750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7736844746346177568, guid: 0f3631825dabad440938ce60b7cd0ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 271749749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &271749751 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1354850781884107301, guid: 0f3631825dabad440938ce60b7cd0ce8,
@@ -1519,6 +1525,12 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &271749754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7301742107498972335, guid: 0f3631825dabad440938ce60b7cd0ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 271749749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &370543808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4509,6 +4521,16 @@ PrefabInstance:
       propertyPath: winText
       value: 
       objectReference: {fileID: 271749753}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 271749754}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 271749750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &2028023768 stripped

@@ -770,6 +770,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6688994232376920464, guid: 0f3631825dabad440938ce60b7cd0ce8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7467018127378404590, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_Name
@@ -988,7 +993,7 @@ PrefabInstance:
     - target: {fileID: 7572871238596880060, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6000061
+      value: 0.5999756
       objectReference: {fileID: 0}
     - target: {fileID: 7572871238596880060, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
@@ -1078,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 3600436183569573696, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3600436183569573696, guid: 0f3631825dabad440938ce60b7cd0ce8,
         type: 3}
@@ -3115,6 +3120,16 @@ PrefabInstance:
       propertyPath: winText
       value: 
       objectReference: {fileID: 237418018}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuUIElements
+      value: 
+      objectReference: {fileID: 1846574303}
+    - target: {fileID: 2680030757040527692, guid: 0abeb91bf82f42441a613b83c5a5732e,
+        type: 3}
+      propertyPath: backToMenuMessage
+      value: 
+      objectReference: {fileID: 1047449082}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0abeb91bf82f42441a613b83c5a5732e, type: 3}
 --- !u!114 &800282183 stripped
@@ -3763,6 +3778,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7d3a96f34622643b7c35fd3da8db68, type: 3}
+--- !u!1 &1047449082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7736844746346177568, guid: 0f3631825dabad440938ce60b7cd0ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 237418014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1060129413
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,6 +6179,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1846574303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7301742107498972335, guid: 0f3631825dabad440938ce60b7cd0ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 237418014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1849449846
 GameObject:
   m_ObjectHideFlags: 0

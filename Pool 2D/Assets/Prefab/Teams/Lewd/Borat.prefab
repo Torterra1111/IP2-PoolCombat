@@ -143,8 +143,8 @@ MonoBehaviour:
   ballHasCollided: 0
   speed: 0
   ballForce: 0
-  hp: 3
-  Attack: 3
+  hp: 5
+  Attack: 2
   Armour: 0
   IsActive: 0
   interactable: 0
@@ -619,11 +619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8012416297695141465}
     m_Modifications:
-    - target: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
-        type: 3}
-      propertyPath: m_Name
-      value: Cirle
-      objectReference: {fileID: 0}
     - target: {fileID: 7644913468834558172, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -678,6 +673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
+        type: 3}
+      propertyPath: m_Name
+      value: Cirle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d027e50f5b1bc64ebd727b97df04d7b, type: 3}

@@ -30,6 +30,11 @@ public class GameController : MonoBehaviour
     public bool matchOver;
     public Text winText;
 
+    public GameObject backToMenuUIElements;
+    float timeToMessageDisappear;
+    bool messageShown;
+    public GameObject backToMenuMessage;
+
     public enum TurnState
     {
         PLAYER1,
@@ -58,11 +63,29 @@ public class GameController : MonoBehaviour
         player1Balls = GameObject.FindGameObjectsWithTag("Player1");
         player2Balls = GameObject.FindGameObjectsWithTag("Player2");
 
+        timeToMessageDisappear = 0f;
+        messageShown = false;
+
         currentState = TurnState.PLAYER1;
     }
 
     void Update()
     {
+        if(!messageShown)
+        {
+            timeToMessageDisappear += Time.deltaTime;
+            if (timeToMessageDisappear > 3.5f)
+            {
+                messageShown = true;
+                backToMenuMessage.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            backToMenuUIElements.SetActive(true);
+        }
+
         switch (currentState)
         {
             case (TurnState.PLAYER1):
@@ -233,5 +256,10 @@ public class GameController : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
+    }
+
+    public void CloseBackToMenuPanel()
+    {
+        backToMenuUIElements.SetActive(false);
     }
 }
