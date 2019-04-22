@@ -141,6 +141,7 @@ public class TeamSelectionManager : MonoBehaviour
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
             sceneToLoad = "LevelJungle";
+            gameDataScript.SceneLoaded = "LevelJungle";
             mapSelectionText.text = " selected";
             mapSelectionText.text = sceneToLoad + mapSelectionText.text;
             for (int i = 0; i < maps.Length; i++)
@@ -179,6 +180,7 @@ public class TeamSelectionManager : MonoBehaviour
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
             sceneToLoad = "LevelDungeon";
+            gameDataScript.SceneLoaded = "LevelDungeon";
             mapSelectionText.text = " selected";
             mapSelectionText.text = sceneToLoad + mapSelectionText.text;
             for (int i = 0; i < maps.Length; i++)
@@ -197,6 +199,7 @@ public class TeamSelectionManager : MonoBehaviour
         if (gameDataScript.player1selection != 0 && gameDataScript.player2selection != 0)
         {
             sceneToLoad = "LevelJapanese";
+            gameDataScript.SceneLoaded = "LevelJapanese";
             mapSelectionText.text = " selected";
             mapSelectionText.text = sceneToLoad + mapSelectionText.text;
             for (int i = 0; i < maps.Length; i++)

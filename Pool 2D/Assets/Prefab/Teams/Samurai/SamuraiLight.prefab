@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
+    m_FontStyle: 1
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -404,8 +404,10 @@ MonoBehaviour:
   Armour: 0
   IsActive: 0
   interactable: 0
-  samuraiAbility: 0
-  spartansAbility: 0
+  hasSamuraiAbility: 0
+  hasSpartansAbility: 0
+  hasLewdAbility: 0
+  lewdHealthDrop: {fileID: 0}
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 3113260639413845164}
@@ -419,6 +421,7 @@ MonoBehaviour:
     type: 3}
   floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
     type: 3}
+  GameText: {fileID: 3113260639413845153}
 --- !u!82 &3113260641099294210
 AudioSource:
   m_ObjectHideFlags: 0

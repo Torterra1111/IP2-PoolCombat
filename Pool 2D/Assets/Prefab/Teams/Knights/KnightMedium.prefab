@@ -135,7 +135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -354}
+  m_AnchoredPosition: {x: 0, y: -353.48}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9212611146670475705
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
+    m_FontStyle: 1
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -404,17 +404,24 @@ MonoBehaviour:
   Armour: 1
   IsActive: 0
   interactable: 0
-  samuraiAbility: 0
-  spartansAbility: 0
+  hasSamuraiAbility: 0
+  hasSpartansAbility: 0
+  hasLewdAbility: 0
+  lewdHealthDrop: {fileID: 0}
   Injure: {fileID: 8300000, guid: 751512fc9c2f46a44a7773b681ff02cd, type: 3}
   Death: {fileID: 8300000, guid: 77897cff5e13f5d4fbff626f5c0777f6, type: 3}
   hpAndDamageText: {fileID: 5022673871316877138}
   canvas: {fileID: 1781393784091693354}
   ring: {fileID: 4662286558249219461}
+  ColourDuration: 0
+  ColourDecrease: 155
+  RedDuration: 300
+  RedDecrease: 130
   hitEffect: {fileID: 1388377918277234605, guid: 0544b9dfe40f9ca4ca51a2ef7d4eadbc,
     type: 3}
   floatingDamagePrefab: {fileID: 5676621789680343197, guid: 5c643b2e904c7df46b37891db55b2e12,
     type: 3}
+  GameText: {fileID: 4326873513227875546}
 --- !u!95 &6541941660022347979
 Animator:
   serializedVersion: 3

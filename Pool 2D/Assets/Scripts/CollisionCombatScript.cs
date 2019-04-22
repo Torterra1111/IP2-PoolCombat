@@ -73,6 +73,7 @@ public class CollisionCombatScript : MonoBehaviour
 
     public GameObject hitEffect;
     public GameObject floatingDamagePrefab;
+    public GameObject GameText;
 
     void Start()
     {
@@ -103,10 +104,24 @@ public class CollisionCombatScript : MonoBehaviour
         if (SelectionMangerScript.SceneLoaded == "LevelGlacier")
         {
             rb.drag = 0.75f;
+            GameText.GetComponent<Text>().color = Color.black;
         }
         else if(SelectionMangerScript.SceneLoaded == "LevelBeach")
         {
             rb.drag = 1.0f;
+            GameText.GetComponent<Text>().color = Color.black;
+        }
+        else if (SelectionMangerScript.SceneLoaded == "LevelJapanese")
+        {
+            GameText.GetComponent<Text>().color = Color.black;
+        }
+        else if (SelectionMangerScript.SceneLoaded == "LevelJungle")
+        {
+            GameText.GetComponent<Text>().color = Color.yellow;
+        }
+        else if (SelectionMangerScript.SceneLoaded == "LevelDungeon")
+        {
+            GameText.GetComponent<Text>().color = Color.yellow;
         }
         else
         {
