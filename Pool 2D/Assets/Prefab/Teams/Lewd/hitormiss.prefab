@@ -269,6 +269,8 @@ GameObject:
   - component: {fileID: 5882966508435141509}
   - component: {fileID: 6347396179741431948}
   - component: {fileID: 8973427864133211862}
+  - component: {fileID: 2701436302102548161}
+  - component: {fileID: 1036508195172536482}
   m_Layer: 0
   m_Name: hitormiss
   m_TagString: Untagged
@@ -612,6 +614,39 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &2701436302102548161
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772367956683073896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75df206da95a25a4b9062d2c68af0dbf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1036508195172536482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772367956683073896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 2701436302102548161}
+  rb: {fileID: 0}
 --- !u!1001 &7231915424976151396
 PrefabInstance:
   m_ObjectHideFlags: 0

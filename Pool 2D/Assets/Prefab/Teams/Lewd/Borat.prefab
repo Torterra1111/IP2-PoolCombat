@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5771145763050526325}
   - component: {fileID: 4372305728188914282}
   - component: {fileID: 1996795155251737760}
+  - component: {fileID: 3313341655595553132}
+  - component: {fileID: 7547611455057850703}
   m_Layer: 0
   m_Name: Borat
   m_TagString: Untagged
@@ -358,6 +360,39 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &3313341655595553132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658439491015335051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 845ccf9edeb353b41a53e43acd4fc785, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7547611455057850703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658439491015335051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 3313341655595553132}
+  rb: {fileID: 0}
 --- !u!1 &2216073868192831850
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +654,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8012416297695141465}
     m_Modifications:
+    - target: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
+        type: 3}
+      propertyPath: m_Name
+      value: Cirle
+      objectReference: {fileID: 0}
     - target: {fileID: 7644913468834558172, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -673,11 +713,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 842164584401372697, guid: 9d027e50f5b1bc64ebd727b97df04d7b,
-        type: 3}
-      propertyPath: m_Name
-      value: Cirle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d027e50f5b1bc64ebd727b97df04d7b, type: 3}

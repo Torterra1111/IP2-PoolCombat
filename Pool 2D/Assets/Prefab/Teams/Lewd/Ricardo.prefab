@@ -168,6 +168,8 @@ GameObject:
   - component: {fileID: 387069528290060476}
   - component: {fileID: 1211132039778908907}
   - component: {fileID: 2563567409776516284}
+  - component: {fileID: 5865702369453978968}
+  - component: {fileID: 218612173289568949}
   m_Layer: 0
   m_Name: Ricardo
   m_TagString: Untagged
@@ -511,6 +513,39 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &5865702369453978968
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254556941179207465}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0223f039b67de4b45a9a2ca5a29be436, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &218612173289568949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254556941179207465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4565abc7ccdbd5c449138dd1b1b7be36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 5865702369453978968}
+  rb: {fileID: 0}
 --- !u!1 &8585636675225287164
 GameObject:
   m_ObjectHideFlags: 0
